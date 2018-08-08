@@ -6,21 +6,46 @@
 	align-content: space-between;
 }
 
-.m-widget4.m-widget4--progress .m-widget4__progress {
-	width: 100% !important;
+.m-widget4.m-widget4--progress .m-widget4__progress_flex {
+	flex: 1 1 70%;
+	vertical-align: middle;
+	padding-left: 2rem;
+	padding-right: 2rem;
 }
 
 .m-widget4 .m-widget4__item .m-widget4__ext {
 	margin-top: 3px;
 }
 
-.m-widget4.m-widget4--progress .m-widget4__progress .m-widget4__progress-wrapper .progress {
-	display: flex !important;
-	margin-top: 0 !important;
-	height: 37px !important;
+.m-widget4.m-widget4--progress .m-widget4__progress_flex .m-widget4__progress-wrapper
+ {
+    flex: 1 1 100%;
+    flex-wrap: wrap;
+    align-content: space-between;
+    display: flex;
+    flex-direction: column;
+
 }
 
-m-widget4__ext .btn {
+.m-widget4__progress-wrapper div {
+	display: flex;
+	align-content: space-between;
+	flex-wrap: wrap;
+}
+
+.m-widget17__progress-number {
+	flex: 1 1 ;
+}
+
+.m-widget4__ext .btn {
 	padding: 20px;
 	margin-top: 5px;
+
+}
+
+.m-widget4__ext {
+	display: block;
+    flex: 1 1 10%;
+    text-align: center;
+    margin: 0 auto;
 }
