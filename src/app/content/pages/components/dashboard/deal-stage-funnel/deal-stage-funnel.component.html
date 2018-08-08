@@ -1,0 +1,108 @@
+<!--Begin::Section-->
+<div class="row">
+	<div class="col-xl-6">
+		<m-portlet>
+			<!-- use ng-container[mPortletHeadTitle] for the title -->
+			<ng-container mPortletHeadTitle>
+				<div class="m-portlet__head-title">
+					<h3 class="m-portlet__head-text">
+						Deal Stage Funnel
+						<i class="flaticon-exclamation m--font-primary"></i>
+					</h3>
+				</div>
+			</ng-container>
+
+			<!-- use ng-container[mPortletHeadTools] for the top right toolbar content -->
+			<ng-container mPortletHeadTools>
+				<ul class="m-portlet__nav">
+					<li class="m-portlet__nav-item m-dropdown m-dropdown--inline m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push" m-dropdown-toggle="hover" aria-expanded="true">
+						<a href="#" class="m-portlet__nav-link m-portlet__nav-link--icon m-portlet__nav-link--icon-xl m-dropdown__toggle">
+							<i class="la la-ellipsis-h m--font-brand"></i>
+						</a>
+						<div class="m-dropdown__wrapper" style="z-index: 101;">
+							<span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust" style="left: auto; right: 21.5px;"></span>
+							<div class="m-dropdown__inner">
+								<div class="m-dropdown__body">
+									<div class="m-dropdown__content">
+										<ul class="m-nav">
+											<li class="m-nav__section m-nav__section--first">
+												<span class="m-nav__section-text">Quick Actions</span>
+											</li>
+											<li class="m-nav__item">
+												<a href="" class="m-nav__link">
+													<i class="m-nav__link-icon flaticon-share"></i>
+													<span class="m-nav__link-text">Activity</span>
+												</a>
+											</li>
+											<li class="m-nav__item">
+												<a href="" class="m-nav__link">
+													<i class="m-nav__link-icon flaticon-chat-1"></i>
+													<span class="m-nav__link-text">Messages</span>
+												</a>
+											</li>
+											<li class="m-nav__item">
+												<a href="" class="m-nav__link">
+													<i class="m-nav__link-icon flaticon-info"></i>
+													<span class="m-nav__link-text">FAQ</span>
+												</a>
+											</li>
+											<li class="m-nav__item">
+												<a href="" class="m-nav__link">
+													<i class="m-nav__link-icon flaticon-lifebuoy"></i>
+													<span class="m-nav__link-text">Support</span>
+												</a>
+											</li>
+											<li class="m-nav__separator m-nav__separator--fit">
+											</li>
+											<li class="m-nav__item">
+												<a href="#" class="btn btn-outline-danger m-btn m-btn--pill m-btn--wide btn-sm">Cancel</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</ng-container>
+
+			<ng-container mPortletBody>
+
+				<div class="m-widget4 m-widget4--progress">
+					<div class="m-widget4__item">
+						<div class="m-widget4__progress">
+							<div class="m-widget4__progress-wrapper">
+								<span class="m-widget17__progress-number">Deal Stage</span>
+								<span class="m-widget17__progress-label">Count of Deals</span>
+							</div>
+						</div>
+						<div class="m-widget4__ext">
+							Conversion
+						</div>
+					</div>
+					<div class="m-widget4__item" *ngFor="let deal of dealsData">
+						<div class="m-widget4__progress">
+							<div class="m-widget4__progress-wrapper">
+								<span class="m-widget17__progress-number">{{ deal.count / 100 | percent }}</span>
+								<span class="m-widget17__progress-label"> {{ deal.stage }}</span>
+								<ngb-progressbar type="danger" [value]="deal.count"></ngb-progressbar>
+							</div>
+						</div>
+						<div class="m-widget4__ext">
+							<a href="#" class="btn m-btn--pill    btn-outline-danger m-btn m-btn--custom m-btn--outline-2x"> {{ deal.conversion }} %</a>
+						</div>
+					</div>
+
+				</div>
+
+			</ng-container>
+
+
+		</m-portlet>
+
+	</div>
+	<div class="col-xl-6">
+
+	</div>
+</div>
+<!--End::Section-->

@@ -1,0 +1,26 @@
+.m-widget4 .m-widget4__item {
+	display: flex !important;
+	flex-wrap: nowrap;
+	padding-top: 1.15rem;
+	padding-bottom: 1.25rem;
+	align-content: space-between;
+}
+
+.m-widget4.m-widget4--progress .m-widget4__progress {
+	width: 100% !important;
+}
+
+.m-widget4 .m-widget4__item .m-widget4__ext {
+	margin-top: 3px;
+}
+
+.m-widget4.m-widget4--progress .m-widget4__progress .m-widget4__progress-wrapper .progress {
+	display: flex !important;
+	margin-top: 0 !important;
+	height: 37px !important;
+}
+
+m-widget4__ext .btn {
+	padding: 20px;
+	margin-top: 5px;
+}

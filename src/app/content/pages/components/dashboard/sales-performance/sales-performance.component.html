@@ -1,0 +1,89 @@
+<m-portlet class="m--bg-accent">
+	<!-- use ng-container[mPortletHeadTitle] for the title -->
+	<ng-container mPortletHeadTitle>
+		<div class="m-portlet__head-title">
+			<h3 class="m-portlet__head-text">
+				Sales Performance
+			</h3>
+		</div>
+	</ng-container>
+
+	<!-- use ng-container[mPortletHeadTools] for the top right toolbar content -->
+	<ng-container mPortletHeadTools>
+		<ul class="m-portlet__nav">
+			<li class="m-portlet__nav-item m-dropdown m-dropdown--inline m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push" m-dropdown-toggle="hover" aria-expanded="true">
+				<a href="#" class="m-portlet__nav-link m-portlet__nav-link--icon m-portlet__nav-link--icon-xl m-dropdown__toggle">
+					<i class="la la-ellipsis-h m--font-brand"></i>
+				</a>
+				<div class="m-dropdown__wrapper" style="z-index: 101;">
+					<span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust" style="left: auto; right: 21.5px;"></span>
+					<div class="m-dropdown__inner">
+						<div class="m-dropdown__body">
+							<div class="m-dropdown__content">
+								<ul class="m-nav">
+									<li class="m-nav__section m-nav__section--first">
+										<span class="m-nav__section-text">Quick Actions</span>
+									</li>
+									<li class="m-nav__item">
+										<a href="" class="m-nav__link">
+											<i class="m-nav__link-icon flaticon-share"></i>
+											<span class="m-nav__link-text">Activity</span>
+										</a>
+									</li>
+									<li class="m-nav__item">
+										<a href="" class="m-nav__link">
+											<i class="m-nav__link-icon flaticon-chat-1"></i>
+											<span class="m-nav__link-text">Messages</span>
+										</a>
+									</li>
+									<li class="m-nav__item">
+										<a href="" class="m-nav__link">
+											<i class="m-nav__link-icon flaticon-info"></i>
+											<span class="m-nav__link-text">FAQ</span>
+										</a>
+									</li>
+									<li class="m-nav__item">
+										<a href="" class="m-nav__link">
+											<i class="m-nav__link-icon flaticon-lifebuoy"></i>
+											<span class="m-nav__link-text">Support</span>
+										</a>
+									</li>
+									<li class="m-nav__separator m-nav__separator--fit">
+									</li>
+									<li class="m-nav__item">
+										<a href="#" class="btn btn-outline-danger m-btn m-btn--pill m-btn--wide btn-sm">Cancel</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</ng-container>
+
+	<ng-container mPortletBody>
+		<h3 class="total">$1,213,252</h3>
+		<div class="d-flex flex-column">
+			<div>
+				<ul class="sales-well sales-well--nowrap">
+					<li class="sales-well__item sales-well__item--small m-y-2" *ngFor="let sale of salesPerformanceData">
+						<div class="sales-well__inner">
+							<span class="sales-well__label"> {{ sale.name }} </span>
+
+							<span class="sales-well__big-number m--font-primary">{{ sale.value }}</span>
+							<span class="sales-well__connector">
+								<span class="sales-chevron sales-chevron--right">
+									<span class="sales-chevron__inner"></span>
+								</span>
+							</span>
+						</div>
+					</li>
+				</ul>
+			</div>
+
+		</div>
+	</ng-container>
+
+
+</m-portlet>
