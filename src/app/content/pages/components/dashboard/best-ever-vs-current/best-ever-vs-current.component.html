@@ -1,11 +1,12 @@
 <!--Begin::Section-->
+
+
 <m-portlet>
 	<!-- use ng-container[mPortletHeadTitle] for the title -->
 	<ng-container mPortletHeadTitle>
 		<div class="m-portlet__head-title">
 			<h3 class="m-portlet__head-text">
-				Deal Stage Funnel
-				<i class="flaticon-exclamation m--font-primary"></i>
+				Best Ever vs Current
 			</h3>
 		</div>
 	</ng-container>
@@ -66,36 +67,10 @@
 
 	<ng-container mPortletBody>
 
-		<div class="m-widget4 m-widget4--progress">
-			<div class="m-widget4__item">
-				<div class="m-widget4__progress_flex">
-					<div class="m-widget4__progress-wrapper">
-						<div>
-							<span class="m-widget17__progress-number">Deal Stage</span>
-							<span class="m-widget17__progress-label">Count of Deals</span>
-						</div>
+		<div class="m-widget14">
 
-					</div>
-				</div>
-				<div class="m-widget4__ext">
-					Conversion
-				</div>
-			</div>
-			<div class="m-widget4__item" *ngFor="let deal of dealsData">
-				<div class="m-widget4__progress_flex">
-					<div class="m-widget4__progress-wrapper">
-						<div>
-							<span class="m-widget17__progress-label m--font-danger" style="margin-bottom: -40px;padding-top: 8px;padding-left: 5px;z-index: 100;"> {{ deal.stage }}</span>
-						</div>
-						<ngb-progressbar class="progress-reverse" type="danger" [value]="deal.count">
-							<span class="m-widget17__progress-number-inside">{{ deal.count }}</span>
-						</ngb-progressbar>
-					</div>
-				</div>
-				<div class="m-widget4__ext">
-					<a href="#" class="btn m-btn--pill    btn-outline-danger m-btn m-btn--custom m-btn--outline-2x"> {{ deal.conversion }} %</a>
-				</div>
-			</div>
+			<canvas baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions" [legend]="lineChartLegend"
+			[chartType]="lineChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
 
 		</div>
 
@@ -103,4 +78,7 @@
 
 
 </m-portlet>
+
+
+
 <!--End::Section-->

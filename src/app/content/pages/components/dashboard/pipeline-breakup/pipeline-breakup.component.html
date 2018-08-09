@@ -68,8 +68,8 @@
 
 			<div class="m-portlet no-border no-shadow">
 				<div class="m-portlet__body  m-portlet__body--no-padding">
-					<div class="row m-row--no-padding">
-						<div class="col-xl" *ngFor="let deal of pipeLineData">
+					<div class="d-flex flex-row  justify-content-start  m-row--no-padding">
+						<div [ngStyle]="deal.flexWidth" class="p-1" *ngFor="let deal of pipeLineData">
 
 							<div class="m-widget24">
 								<div class="m-widget24__item ">

@@ -22,27 +22,37 @@ export class PipelineBreakupComponent implements OnInit {
 			{
 				amount: 234455,
 				stage: 'Follow up ',
-				percent: 35,
-				type: 'danger'
+				percent: 20,
+				type: 'danger',
+				flexWidth: { flex: `1 1 20%` }
 			},
 			{
 				amount: 23855,
 				stage: 'Contacted ',
-				percent: 23,
-				type: 'warning'
+				percent: 20,
+				type: 'warning',
+				flexWidth: { flex: `1 1 20%` }
 			},
-			{ amount: 234525, stage: 'F2F ', percent: 55, type: 'high deal' },
+			{
+				amount: 234525,
+				stage: 'F2F ',
+				percent: 40,
+				type: 'high deal',
+				flexWidth: { flex: `1 1 40%` }
+			},
 			{
 				amount: 23785,
 				stage: 'Doc Collection ',
-				percent: 27,
-				type: 'info'
+				percent: 10,
+				type: 'info',
+				flexWidth: { flex: `1 1 10%` }
 			},
 			{
 				amount: 15255,
 				stage: 'File Processing ',
-				percent: 88,
-				type: 'success'
+				percent: 10,
+				type: 'success',
+				flexWidth: { flex: `1 1 10%` }
 			}
 		];
 	}

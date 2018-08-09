@@ -107,3 +107,8 @@ mat-radio-button {
 	padding: 0 !important;
 	border-bottom:0 !important;
 }
+
+.progress-reverse .progress,
+ {
+	flex-direction: row-reverse !important;
+}
