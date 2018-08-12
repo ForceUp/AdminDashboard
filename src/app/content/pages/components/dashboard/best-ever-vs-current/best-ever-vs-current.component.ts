@@ -19,16 +19,30 @@ export class BestEverVsCurrentComponent implements OnInit {
 		}
 	];
 	public lineChartLabels: Array<any> = [
-		'January',
-		'February',
-		'March',
-		'April',
-		'May',
-		'June',
-		'July'
+		'Day 1 ',
+		'Day 5',
+		'Day 10',
+		'Day 15',
+		'Day 20',
+		'Day 25',
+		'Day 30'
 	];
 	public lineChartOptions: any = {
-		responsive: true
+		responsive: true,
+		scales: {
+			yAxes: [
+				{
+					ticks: {
+						beginAtZero: true,
+						stepSize: 25,
+						max: 1000,
+						callback: (value, index, values) => {
+							return value + ' k';
+						}
+					}
+				}
+			]
+		}
 	};
 	public lineChartLegend: boolean = true;
 	public lineChartType: string = 'line';

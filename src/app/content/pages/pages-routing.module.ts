@@ -21,15 +21,22 @@ const routes: Routes = [
 		children: [
 			{
 				path: '',
-				loadChildren: './components/dashboard/dashboard.module#DashboardModule'
-			},{
+				loadChildren:
+					'./components/dashboard/dashboard.module#DashboardModule'
+			},
+			{
+				path: 'team-board',
+				loadChildren:
+					'./components/team-board/team-board.module#TeamBoardModule'
+			},
+			{
 				path: 'header/actions',
 				component: ActionComponent
 			},
 			{
 				path: 'profile',
 				component: ProfileComponent
-			},
+			}
 		]
 	},
 	{
@@ -40,7 +47,7 @@ const routes: Routes = [
 			permissions: {
 				except: 'ADMIN'
 			}
-		},
+		}
 	},
 	{
 		path: '404',
@@ -49,7 +56,7 @@ const routes: Routes = [
 	{
 		path: 'error/:type',
 		component: ErrorPageComponent
-	},
+	}
 ];
 
 @NgModule({

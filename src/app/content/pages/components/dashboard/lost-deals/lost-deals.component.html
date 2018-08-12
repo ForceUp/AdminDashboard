@@ -68,27 +68,9 @@
 	<ng-container mPortletBody>
 
 		<div class="row">
-			<div class="col-sm-12">
-
-				<div class="m-widget14">
-
+			<div class="col-sm-12" style="height:500px">
 					<canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
-
-
-				</div>
-
 			</div>
-			<!-- <div class="col-sm-3">
-				<div class="m-widget10">
-
-					<mat-chip-list class="mat-chip-list-stacked">
-						<mat-chip *ngFor="let chip of availableColors" selected="true" color="primary" [class]="chip.color" >
-							{{chip.name}}
-						</mat-chip>
-						</mat-chip-list>
-
-				</div>
-			</div> -->
 		</div>
 
 	</ng-container>

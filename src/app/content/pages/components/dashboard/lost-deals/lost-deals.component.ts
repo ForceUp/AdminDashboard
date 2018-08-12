@@ -7,8 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LostDealsComponent implements OnInit {
 	public barChartOptions: any = {
-		scaleShowVerticalLines: false,
-		responsive: true
+		maintainAspectRatio: false,
+		scales: {
+			yAxes: [
+				{
+					ticks: {
+						beginAtZero: true,
+						stepSize: 50,
+						max: 250
+					}
+				}
+			]
+		}
 	};
 	public barChartLabels: string[] = [
 		'BAD CIBIL',
@@ -23,17 +33,9 @@ export class LostDealsComponent implements OnInit {
 	public barChartLegend: boolean = true;
 
 	public barChartData: any[] = [
-		{ data: [65, 59, 80, 81, 56, 55, 40], label: '' }
+		{ data: [165, 100, 180, 140, 120, 100, 130], label: '' }
 	];
-	availableColors: any[] = [
-		{ name: 'BAD CIBIL', color: 'm--bg-fill-primary' },
-		{ name: 'SALARY MISMATCH', color: 'm--bg-fill-warning' },
-		{ name: 'GENERAL ENQUIERY', color: 'm--bg-fill-accent' },
-		{ name: 'ALREADY BOUGHT', color: 'm--bg-fill-warn' },
-		{ name: 'LOAD AMT LESS', color: 'm--bg-danger' },
-		{ name: 'HIGH FEES', color: 'm--bg-info' },
-		{ name: 'INTEREST MISMATCH', color: 'm--bg-fill-metal' }
-	];
+
 	constructor() {}
 
 	ngOnInit() {}
