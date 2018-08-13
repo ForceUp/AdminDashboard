@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { PagesComponent } from './pages.component';
 import { ActionComponent } from './header/action/action.component';
 import { NgxPermissionsGuard } from 'ngx-permissions';
-import { ProfileComponent } from './header/profile/profile.component';
+import { ProfileComponent } from './components/profile/profile.component';
 import { ErrorPageComponent } from './snippets/error-page/error-page.component';
 
 const routes: Routes = [
@@ -35,7 +35,8 @@ const routes: Routes = [
 			},
 			{
 				path: 'profile',
-				component: ProfileComponent
+				loadChildren:
+					'./components/profile/profile.module#ProfileModule'
 			}
 		]
 	},

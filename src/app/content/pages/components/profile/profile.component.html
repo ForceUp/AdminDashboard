@@ -1,0 +1,101 @@
+<div class="row">
+	<div class="col-xl-3 col-lg-3  m--hidden-mobile ">
+		<div class="m-portlet m-portlet--full-height">
+			<div class="m-portlet__body">
+				<div class="m-card-profile">
+					<div class="m-card-profile__title m--hide">
+						Your Profile
+					</div>
+					<div class="m-card-profile__pic">
+						<div class="m-card-profile__pic-wrapper">
+							<img src="./assets/app/media/img/users/user4.jpg" alt="">
+						</div>
+					</div>
+					<div class="m-card-profile__details">
+						<span class="m-card-profile__name">Mark Andre</span>
+						<a href="" class="m-card-profile__email m-link text-left">20% completed</a>
+						<p>
+							<ngb-progressbar type="info" [value]="50"></ngb-progressbar>
+						</p>
+					</div>
+				</div>
+				<ul class="m-nav m-nav--hover-bg m-portlet-fit--sides">
+					<li class="m-nav__separator m-nav__separator--fit"></li>
+					<li class="m-nav__section m--hide">
+						<span class="m-nav__section-text">Section</span>
+					</li>
+					<li class="m-nav__item">
+						<a [routerLink]="['/profile/calendar']" class="m-nav__link" [routerLinkActive]="['m-menu__item--active']">
+							<i class="m-nav__link-icon flaticon-profile-1"></i>
+							<span class="m-nav__link-title">
+								<span class="m-nav__link-wrap">
+									<span class="m-nav__link-text">Calendar</span>
+								</span>
+							</span>
+						</a>
+					</li>
+					<li class="m-nav__item">
+						<a [routerLink]="['/profile/calendar']" class="m-nav__link" [routerLinkActive]="['m-menu__item--active']">
+							<i class="m-nav__link-icon flaticon-share"></i>
+							<span class="m-nav__link-text">Sales Metrics</span>
+						</a>
+					</li>
+					<li class="m-nav__item">
+						<a [routerLink]="['/profile/calendar']" class="m-nav__link" [routerLinkActive]="['m-menu__item--active']">
+							<i class="m-nav__link-icon flaticon-chat-1"></i>
+							<span class="m-nav__link-text">Prospects</span>
+						</a>
+					</li>
+					<li class="m-nav__item">
+						<a [routerLink]="['/profile/calendar']" class="m-nav__link" [routerLinkActive]="['m-menu__item--active']">
+							<i class="m-nav__link-icon flaticon-graphic-2"></i>
+							<span class="m-nav__link-text">Activity</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="col-xl-9 col-lg-9">
+		<div class="m-widget1 m-widget1--paddingless d-flex flex-wrap justify-content-between">
+
+			<div class="widget-item m-widget1__item">
+				<div class="row m-row--no-padding align-items-center">
+					<div class="col">
+						<h3 class="m-widget1__title">Target Achieved</h3>
+						<span class="m-widget1__desc">Deal Value</span>
+					</div>
+					<div class="col m--align-right">
+						<span class="m-widget1__number m--font-brand">4,30,000</span>
+					</div>
+				</div>
+			</div>
+			<div class="widget-item m-widget1__item">
+				<div class="row m-row--no-padding align-items-center">
+					<div class="col">
+						<h3 class="m-widget1__title">Pipeline</h3>
+						<span class="m-widget1__desc">Deal Value</span>
+					</div>
+					<div class="col m--align-right">
+						<span class="m-widget1__number m--font-danger">9,30,000</span>
+					</div>
+				</div>
+			</div>
+			<div class="widget-item m-widget1__item">
+				<div class="row m-row--no-padding align-items-center">
+					<div class="col">
+						<h3 class="m-widget1__title">Lost Deals</h3>
+						<span class="m-widget1__desc">Deal Value</span>
+					</div>
+					<div class="col m--align-right">
+						<span class="m-widget1__number m--font-success">80,000</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<router-outlet></router-outlet>
+		</div>
+
+	</div>
+</div>

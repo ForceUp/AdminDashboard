@@ -68,8 +68,11 @@
 		<div class="row  m-row--col-separator-xl">
 			<div class="col-sm-4 col">
 				<div class="m-widget4">
+						<div class="m-widget4__header">
+								<h3 class="m-widget-4__title">Top 5 Sales achiever</h3>
+							</div>
 					<div class="m-widget4__item d-flex justify-content-between flex-wrap align-items-center" *ngFor="let person of topFivePersons.salesAcheiver">
-						<div class="flex-75">
+						<div class="flex-70">
 							<div class="m-widget4__img m-widget4__img--logo">
 								<img [src]="person.logo" [alt]="person.name">
 							</div>
@@ -92,8 +95,11 @@
 			</div>
 			<div class="col-sm-4 col">
 				<div class="m-widget4">
+					<div class="m-widget4__header">
+						<h3 class="m-widget-4__title">Top 5 in Pipeline</h3>
+					</div>
 					<div class="m-widget4__item d-flex justify-content-between flex-wrap align-items-center" *ngFor="let person of topFivePersons.pipeline">
-						<div class="flex-75">
+						<div class="flex-70">
 							<div class="m-widget4__img m-widget4__img--logo">
 								<img [src]="person.logo" [alt]="person.name">
 							</div>
@@ -116,8 +122,11 @@
 			</div>
 			<div class="col-sm-4 col">
 				<div class="m-widget4">
+						<div class="m-widget4__header">
+								<h3 class="m-widget-4__title">Top 5 in F2F</h3>
+							</div>
 					<div class="m-widget4__item d-flex justify-content-between flex-wrap align-items-center" *ngFor="let person of topFivePersons.f2f">
-						<div class="flex-75">
+						<div class="flex-70">
 							<div class="m-widget4__img m-widget4__img--logo">
 								<img [src]="person.logo" [alt]="person.name">
 							</div>

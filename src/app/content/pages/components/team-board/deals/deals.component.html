@@ -68,11 +68,11 @@
 		<ng-container mPortletBody>
 
 			<div class="row">
-				<div class="col-sm-6 col"  style="height:500px">
+				<div class="col-sm-12 col"  style="height:500px">
 						<canvas baseChart [datasets]="barChartData1" [labels]="barChartLabels" [options]="barChartOptions1" [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
 				</div>
 
-				<div class="col-sm-6 col"  style="height:500px">
+				<div class="col-sm-12 col"  style="height:500px">
 						<canvas baseChart [datasets]="barChartData2" [labels]="barChartLabels" [options]="barChartOptions2" [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
 				</div>
 

@@ -1,9 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import {
-	MatTableDataSource,
-	MatPaginator,
-	MatSort
-} from '@angular/material';
+import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
 import { ForecastData, data } from './data.model';
 
 @Component({
@@ -16,8 +12,7 @@ export class ForecastByRepComponent implements OnInit {
 		'name',
 		'totalClosed',
 		'totalPipeLine',
-		'totalForecast',
-		'actions'
+		'totalForecast'
 	];
 	dataSource: MatTableDataSource<ForecastData>;
 
