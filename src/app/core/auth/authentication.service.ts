@@ -12,6 +12,8 @@ import { Credential } from './credential';
 
 @Injectable()
 export class AuthenticationService implements AuthService {
+	// API_URL = 'http://46.101.138.54:8080/forceapi/';
+	// API_ENDPOINT_LOGIN = 'users/webAction/teamresult';
 	API_URL = 'api';
 	API_ENDPOINT_LOGIN = '/login';
 	API_ENDPOINT_REFRESH = '/refresh';
@@ -63,7 +65,12 @@ export class AuthenticationService implements AuthService {
 	public refreshToken(): Observable<AccessData> {
 		return this.tokenStorage.getRefreshToken().pipe(
 			switchMap((refreshToken: string) => {
-				return this.http.get<AccessData>(this.API_URL + this.API_ENDPOINT_REFRESH + '?' + this.util.urlParam(refreshToken));
+				return this.http.get<AccessData>(
+					this.API_URL +
+						this.API_ENDPOINT_REFRESH +
+						'?' +
+						this.util.urlParam(refreshToken)
+				);
 			}),
 			tap(this.saveAccessData.bind(this)),
 			catchError(err => {
@@ -100,8 +107,12 @@ export class AuthenticationService implements AuthService {
 	 * @returns {Observable<any>}
 	 */
 	public login(credential: Credential): Observable<any> {
-		return this.http.get<AccessData>(this.API_URL + this.API_ENDPOINT_LOGIN + '?' + this.util.urlParam(credential)).pipe(
+		// debugger {
+		// 	Karthik: { userName: credential.username , password: credential.password }
+		// };
+		return this.http.get(this.API_URL + this.API_ENDPOINT_LOGIN).pipe(
 			map((result: any) => {
+				debugger;
 				if (result instanceof Array) {
 					return result.pop();
 				}
@@ -163,11 +174,11 @@ export class AuthenticationService implements AuthService {
 		credential = Object.assign({}, credential, {
 			accessToken: 'access-token-' + Math.random(),
 			refreshToken: 'access-token-' + Math.random(),
-			roles: ['USER'],
+			roles: ['USER']
 		});
-		return this.http.post(this.API_URL + this.API_ENDPOINT_REGISTER, credential)
-			.pipe(catchError(this.handleError('register', []))
-		);
+		return this.http
+			.post(this.API_URL + this.API_ENDPOINT_REGISTER, credential)
+			.pipe(catchError(this.handleError('register', [])));
 	}
 
 	/**
@@ -176,9 +187,13 @@ export class AuthenticationService implements AuthService {
 	 * @returns {Observable<any>}
 	 */
 	public requestPassword(credential: Credential): Observable<any> {
-		return this.http.get(this.API_URL + this.API_ENDPOINT_LOGIN + '?' + this.util.urlParam(credential))
-			.pipe(catchError(this.handleError('forgot-password', []))
-		);
+		return this.http
+			.get(
+				this.API_URL +
+					this.API_ENDPOINT_LOGIN +
+					'?' +
+					this.util.urlParam(credential)
+			)
+			.pipe(catchError(this.handleError('forgot-password', [])));
 	}
-
 }

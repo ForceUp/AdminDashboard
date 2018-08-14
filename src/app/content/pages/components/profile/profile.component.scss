@@ -9,3 +9,8 @@
 	display: none !important;
 	visibility: hidden !important;
 }
+
+.m-menu__item--active {
+	background-color: #f6f5fc;
+	color: purple;
+}

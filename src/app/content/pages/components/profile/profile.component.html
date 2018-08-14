@@ -35,19 +35,19 @@
 						</a>
 					</li>
 					<li class="m-nav__item">
-						<a [routerLink]="['/profile/calendar']" class="m-nav__link" [routerLinkActive]="['m-menu__item--active']">
+						<a [routerLink]="['/profile/sales-metrics']" class="m-nav__link" [routerLinkActive]="['m-menu__item--active']">
 							<i class="m-nav__link-icon flaticon-share"></i>
 							<span class="m-nav__link-text">Sales Metrics</span>
 						</a>
 					</li>
 					<li class="m-nav__item">
-						<a [routerLink]="['/profile/calendar']" class="m-nav__link" [routerLinkActive]="['m-menu__item--active']">
+						<a [routerLink]="['/profile/prospects']" class="m-nav__link" [routerLinkActive]="['m-menu__item--active']">
 							<i class="m-nav__link-icon flaticon-chat-1"></i>
 							<span class="m-nav__link-text">Prospects</span>
 						</a>
 					</li>
 					<li class="m-nav__item">
-						<a [routerLink]="['/profile/calendar']" class="m-nav__link" [routerLinkActive]="['m-menu__item--active']">
+						<a [routerLink]="['/profile/activity']" class="m-nav__link" [routerLinkActive]="['m-menu__item--active']">
 							<i class="m-nav__link-icon flaticon-graphic-2"></i>
 							<span class="m-nav__link-text">Activity</span>
 						</a>
@@ -93,9 +93,6 @@
 				</div>
 			</div>
 		</div>
-		<div class="row">
-			<router-outlet></router-outlet>
-		</div>
-
+		<router-outlet></router-outlet>
 	</div>
 </div>

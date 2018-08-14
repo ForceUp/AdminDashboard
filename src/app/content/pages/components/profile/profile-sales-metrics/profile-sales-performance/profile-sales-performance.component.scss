@@ -1,0 +1,133 @@
+.total {
+	font-size: 24px;
+	font-weight: 500;
+	color: #516f90;
+}
+
+.sales-well {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    list-style-type: none;
+    margin: 0;
+	padding: 2rem 0 0 .75rem;
+}
+
+.sales-well--nowrap {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.m-y-2 {
+    margin-top: 8px!important;
+    margin-bottom: 8px!important;
+}
+
+.sales-well__item {
+    flex: 1 1 180px;
+    margin-bottom: 2rem;
+    margin-top: 1.125rem;
+    padding: 0 .75rem 0 0;
+    position: relative;
+}
+
+.sales-well__inner {
+	max-width: none;
+	text-align: center;
+}
+
+.sales-well__help-text, .sales-well__label {
+	display: block;
+	font-size: .75rem;
+}
+
+.sales-well__label {
+    font-weight: 600;
+    margin-bottom: 1.25rem;
+    display: block;
+    font-size: 1rem;
+    line-height: normal;
+    margin-bottom: 4px;
+	text-transform: uppercase;
+	text-shadow: 0 0 1px transparent;
+    margin-top: 0;
+    color: #33475b;
+}
+.sales-well__item--small .sales-well__big-number {
+    font-weight: 500;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-shadow: 0 0 1px transparent;
+    margin-bottom: 1.25rem;
+    margin-top: 0;
+    display: block;
+    font-size: 1.85rem;
+    line-height: normal;
+    margin-bottom: 0;
+	line-height: 2.375rem;
+	color: #33475b;
+}
+
+.sales-well__big-number, .sales-well__label {
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-shadow: 0 0 1px transparent;
+    margin-top: -21px;
+
+}
+
+.sales-well__connector {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%) translateX(50%);
+    z-index: 1;
+}
+
+.sales-chevron {
+    align-items: center;
+    display: inline-flex;
+    font-size: 12px;
+    font-size: .75rem;
+    color: #eaf0f6;
+    min-height: 2.5rem;
+    padding: .25rem .25rem .25rem .75rem;
+    position: relative;
+    text-align: center;
+}
+
+.sales-chevron--right:after, .sales-chevron--right:before {
+    left: -5%;
+    background-color: currentColor;
+    content: " ";
+    height: 50%;
+    position: absolute;
+    width: 110%;
+}
+
+.sales-chevron--right:before {
+    top: 0;
+    transform: skew(30deg);
+}
+
+.sales-chevron__inner {
+    color: #33475b;
+    min-width: 1.875rem;
+    position: relative;
+    z-index: 1;
+}
+
+.sales-chevron--right:after {
+    bottom: 0;
+    transform: skew(-30deg);
+}
+
+.sales-chevron--right:after, .sales-chevron--right:before {
+    left: -5%;
+    background-color: currentColor;
+    content: " ";
+    height: 50%;
+    position: absolute;
+    width: 110%;
+}

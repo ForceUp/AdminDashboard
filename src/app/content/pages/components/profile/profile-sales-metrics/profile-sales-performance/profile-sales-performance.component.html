@@ -1,9 +1,9 @@
-<m-portlet>
+<m-portlet class="m--bg-accent">
 	<!-- use ng-container[mPortletHeadTitle] for the title -->
 	<ng-container mPortletHeadTitle>
 		<div class="m-portlet__head-title">
 			<h3 class="m-portlet__head-text">
-				PipeLine
+				Sales Performance
 			</h3>
 		</div>
 	</ng-container>
@@ -63,42 +63,26 @@
 	</ng-container>
 
 	<ng-container mPortletBody>
-		<div class="m-widget2">
-			<h3 class="total">$1,213,252</h3>
+		<h3 class="total">$1,213,252</h3>
+		<div class="d-flex flex-column">
+			<div>
+				<ul class="sales-well sales-well--nowrap">
+					<li class="sales-well__item sales-well__item--small m-y-2" *ngFor="let sale of salesPerformanceData">
+						<div class="sales-well__inner">
+							<span class="sales-well__label"> {{ sale.name }} </span>
 
-			<div class="m-portlet no-border no-shadow">
-				<div class="m-portlet__body  m-portlet__body--no-padding">
-					<perfect-scrollbar class="m-scrollable m-scroller">
-						<div class="d-flex flex-row  justify-content-start  m-row--no-padding flex-nowrap">
-							<div [ngStyle]="deal.flexWidth" class="p-1" *ngFor="let deal of pipeLineData">
-
-								<div class="m-widget24">
-									<div class="m-widget24__item ">
-										<h4 class="m-widget24__title m--font-brand">
-											<span class="m-widget24__stats ">
-												{{ deal.amount | currency : 'INR': 'symbol'}}
-											</span>
-										</h4>
-										<div>
-											<ngb-progressbar [type]="deal.type" [value]="100"></ngb-progressbar>
-										</div>
-										<strong class="m-widget24__change">
-											{{ deal.stage }}
-										</strong>
-										<span class="m-widget24__number">
-											{{ deal.percent / 100 | percent }}
-										</span>
-									</div>
-								</div>
-								<!--end::Total Profit-->
-							</div>
-
+							<span class="sales-well__big-number m--font-primary">{{ sale.value }}</span>
+							<span class="sales-well__connector">
+								<span class="sales-chevron sales-chevron--right">
+									<span class="sales-chevron__inner"></span>
+								</span>
+							</span>
 						</div>
-					</perfect-scrollbar>
-				</div>
+					</li>
+				</ul>
 			</div>
+
 		</div>
 	</ng-container>
-
 
 </m-portlet>

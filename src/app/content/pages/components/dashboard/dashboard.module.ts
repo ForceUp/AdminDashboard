@@ -13,9 +13,11 @@ import { SalesPerformanceComponent } from './sales-performance/sales-performance
 import { DealStageFunnelComponent } from './deal-stage-funnel/deal-stage-funnel.component';
 import { BestEverVsCurrentComponent } from './best-ever-vs-current/best-ever-vs-current.component';
 import { LostDealsComponent } from './lost-deals/lost-deals.component';
-import {MatChipsModule} from '@angular/material/chips';
+import { MatChipsModule } from '@angular/material/chips';
+import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 @NgModule({
 	imports: [
+		PerfectScrollbarModule,
 		CommonModule,
 		LayoutModule,
 		PartialsModule,

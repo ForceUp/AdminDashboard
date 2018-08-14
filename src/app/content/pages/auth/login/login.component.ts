@@ -24,13 +24,16 @@ import { SpinnerButtonOptions } from '../../../partials/content/general/spinner-
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoginComponent implements OnInit, OnDestroy {
-	public model: any = { email: 'admin@demo.com', password: 'demo' };
-	@Output() actionChange = new Subject<string>();
+	public model: any = { username: null, password: null };
+	@Output()
+	actionChange = new Subject<string>();
 	public loading = false;
 
-	@Input() action: string;
+	@Input()
+	action: string;
 
-	@ViewChild('f') f: NgForm;
+	@ViewChild('f')
+	f: NgForm;
 	errors: any = [];
 
 	spinner: SpinnerButtonOptions = {
@@ -54,10 +57,14 @@ export class LoginComponent implements OnInit, OnDestroy {
 		this.spinner.active = true;
 		if (this.validate(this.f)) {
 			this.authService.login(this.model).subscribe(response => {
+				debugger;
 				if (typeof response !== 'undefined') {
 					this.router.navigate(['/']);
 				} else {
-					this.authNoticeService.setNotice(this.translate.instant('AUTH.VALIDATION.INVALID_LOGIN'), 'error');
+					this.authNoticeService.setNotice(
+						this.translate.instant('AUTH.VALIDATION.INVALID_LOGIN'),
+						'error'
+					);
 				}
 				this.spinner.active = false;
 				this.cdr.detectChanges();
@@ -66,11 +73,8 @@ export class LoginComponent implements OnInit, OnDestroy {
 	}
 
 	ngOnInit(): void {
-		// demo message to show
 		if (!this.authNoticeService.onNoticeChanged$.getValue()) {
-			const initialNotice = `Use account
-			<strong>admin@demo.com</strong> and password
-			<strong>demo</strong> to continue.`;
+			const initialNotice = `Please enter your username and password.`;
 			this.authNoticeService.setNotice(initialNotice, 'success');
 		}
 	}
@@ -86,21 +90,40 @@ export class LoginComponent implements OnInit, OnDestroy {
 
 		this.errors = [];
 		if (objectPath.get(f, 'form.controls.email.errors.email')) {
-			this.errors.push(this.translate.instant('AUTH.VALIDATION.INVALID', {name: this.translate.instant('AUTH.INPUT.EMAIL')}));
+			this.errors.push(
+				this.translate.instant('AUTH.VALIDATION.INVALID', {
+					name: this.translate.instant('AUTH.INPUT.EMAIL')
+				})
+			);
 		}
 		if (objectPath.get(f, 'form.controls.email.errors.required')) {
-			this.errors.push(this.translate.instant('AUTH.VALIDATION.REQUIRED', {name: this.translate.instant('AUTH.INPUT.EMAIL')}));
+			this.errors.push(
+				this.translate.instant('AUTH.VALIDATION.REQUIRED', {
+					name: this.translate.instant('AUTH.INPUT.EMAIL')
+				})
+			);
 		}
 
 		if (objectPath.get(f, 'form.controls.password.errors.required')) {
-			this.errors.push(this.translate.instant('AUTH.VALIDATION.INVALID', {name: this.translate.instant('AUTH.INPUT.PASSWORD')}));
+			this.errors.push(
+				this.translate.instant('AUTH.VALIDATION.INVALID', {
+					name: this.translate.instant('AUTH.INPUT.PASSWORD')
+				})
+			);
 		}
 		if (objectPath.get(f, 'form.controls.password.errors.minlength')) {
-			this.errors.push(this.translate.instant('AUTH.VALIDATION.MIN_LENGTH', {name: this.translate.instant('AUTH.INPUT.PASSWORD')}));
+			this.errors.push(
+				this.translate.instant('AUTH.VALIDATION.MIN_LENGTH', {
+					name: this.translate.instant('AUTH.INPUT.PASSWORD')
+				})
+			);
 		}
 
 		if (this.errors.length > 0) {
-			this.authNoticeService.setNotice(this.errors.join('<br/>'), 'error');
+			this.authNoticeService.setNotice(
+				this.errors.join('<br/>'),
+				'error'
+			);
 			this.spinner.active = false;
 		}
 

@@ -2,12 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { NgbProgressbarConfig } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-	selector: 'm-pipeline-breakup',
-	templateUrl: './pipeline-breakup.component.html',
-	styleUrls: ['./pipeline-breakup.component.scss'],
-	providers: [NgbProgressbarConfig]
+	selector: 'm-profile-pipeline-breakup',
+	templateUrl: './profile-pipeline-breakup.component.html',
+	styleUrls: ['./profile-pipeline-breakup.component.scss']
 })
-export class PipelineBreakupComponent implements OnInit {
+export class ProfilePipelineBreakupComponent implements OnInit {
 	pipeLineData: any[];
 	constructor(config: NgbProgressbarConfig) {
 		config.max = 100;

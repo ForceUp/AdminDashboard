@@ -1,9 +1,12 @@
+<!--Begin::Section-->
+
+
 <m-portlet>
 	<!-- use ng-container[mPortletHeadTitle] for the title -->
 	<ng-container mPortletHeadTitle>
 		<div class="m-portlet__head-title">
 			<h3 class="m-portlet__head-text">
-				PipeLine
+				Lost Deals
 			</h3>
 		</div>
 	</ng-container>
@@ -63,42 +66,18 @@
 	</ng-container>
 
 	<ng-container mPortletBody>
-		<div class="m-widget2">
-			<h3 class="total">$1,213,252</h3>
 
-			<div class="m-portlet no-border no-shadow">
-				<div class="m-portlet__body  m-portlet__body--no-padding">
-					<perfect-scrollbar class="m-scrollable m-scroller">
-						<div class="d-flex flex-row  justify-content-start  m-row--no-padding flex-nowrap">
-							<div [ngStyle]="deal.flexWidth" class="p-1" *ngFor="let deal of pipeLineData">
-
-								<div class="m-widget24">
-									<div class="m-widget24__item ">
-										<h4 class="m-widget24__title m--font-brand">
-											<span class="m-widget24__stats ">
-												{{ deal.amount | currency : 'INR': 'symbol'}}
-											</span>
-										</h4>
-										<div>
-											<ngb-progressbar [type]="deal.type" [value]="100"></ngb-progressbar>
-										</div>
-										<strong class="m-widget24__change">
-											{{ deal.stage }}
-										</strong>
-										<span class="m-widget24__number">
-											{{ deal.percent / 100 | percent }}
-										</span>
-									</div>
-								</div>
-								<!--end::Total Profit-->
-							</div>
-
-						</div>
-					</perfect-scrollbar>
-				</div>
+		<div class="row">
+			<div class="col-sm-12" style="height:500px">
+				<canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
 			</div>
 		</div>
+
 	</ng-container>
 
 
 </m-portlet>
+
+
+
+<!--End::Section-->
