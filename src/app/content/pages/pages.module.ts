@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ErrorPageComponent } from './snippets/error-page/error-page.component';
 import { TeamBoardModule } from './components/team-board/team-board.module';
 import { ProfileModule } from './components/profile/profile.module';
+import { LeadsModule } from './components/leads/leads.module';
 
 @NgModule({
 	declarations: [
@@ -30,6 +31,7 @@ import { ProfileModule } from './components/profile/profile.module';
 		AngularEditorModule,
 		TeamBoardModule,
 		ProfileModule,
+		LeadsModule,
 	],
 	providers: []
 })

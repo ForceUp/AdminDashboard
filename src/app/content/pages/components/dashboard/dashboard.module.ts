@@ -15,10 +15,13 @@ import { BestEverVsCurrentComponent } from './best-ever-vs-current/best-ever-vs-
 import { LostDealsComponent } from './lost-deals/lost-deals.component';
 import { MatChipsModule } from '@angular/material/chips';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
+import { DashboardService } from './dashboard.service';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
 	imports: [
 		PerfectScrollbarModule,
 		CommonModule,
+		HttpClientModule,
 		LayoutModule,
 		PartialsModule,
 		ListTimelineModule,
@@ -33,7 +36,7 @@ import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 			}
 		])
 	],
-	providers: [],
+	providers: [DashboardService],
 	declarations: [
 		DashboardComponent,
 		PipelineBreakupComponent,

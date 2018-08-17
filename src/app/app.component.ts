@@ -18,7 +18,7 @@ import { PageConfigService } from './core/services/page-config.service';
 import { filter } from 'rxjs/operators';
 import { SplashScreenService } from './core/services/splash-screen.service';
 import { AclService } from './core/services/acl.service';
-
+import { MatIconRegistry } from '@angular/material';
 // language list
 import { locale as enLang } from './config/i18n/en';
 import { locale as chLang } from './config/i18n/ch';
@@ -50,13 +50,15 @@ export class AppComponent implements AfterViewInit, OnInit {
 	constructor(
 		private layoutConfigService: LayoutConfigService,
 		private classInitService: ClassInitService,
-		private sanitizer: DomSanitizer,
 		private translationService: TranslationService,
 		private router: Router,
 		private pageConfigService: PageConfigService,
 		private splashScreenService: SplashScreenService,
-		private aclService: AclService
+		private aclService: AclService,
+		private iconRegistry: MatIconRegistry,
+		private sanitizer: DomSanitizer
 	) {
+
 		// subscribe to class update event
 		this.classInitService.onClassesUpdated$.subscribe(classes => {
 			// get body class array, join as string classes and pass to host binding class

@@ -37,6 +37,10 @@ const routes: Routes = [
 				path: 'profile',
 				loadChildren:
 					'./components/profile/profile.module#ProfileModule'
+			},
+			{
+				path: 'leads',
+				loadChildren: './components/leads/leads.module#LeadsModule'
 			}
 		]
 	},

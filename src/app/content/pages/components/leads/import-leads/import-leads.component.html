@@ -1,0 +1,37 @@
+<div class="row">
+	<div class="col-sm-12">
+		<div class="text-center d-flex justify-content-center">
+			<h4>What would you like to import ?</h4>
+		</div>
+	</div>
+	<div class="d-flex justify-content-center w-100">
+		<div class="d-flex justify-content-center w-50">
+			<div class="d-flex flex-column justify-content-center flex-50" >
+				<div class="m-portlet m-portlet--bordered m-portlet--unair m-r-5 m-b-5 text-center hover-card" (click)="importCSV()">
+					<div class="m-portlet__body">
+						<img src="assets/evaluation.svg" alt="" class="img-fluid img-svg">
+						<h5>A CSV file</h5>
+					</div>
+				</div>
+				<p class="text-center">
+					<small>Upload a CSV file or a plain text file in CSV format</small>
+				</p>
+			</div>
+
+			<div class="d-flex flex-column justify-content-center flex-50 ">
+				<div class="m-portlet m-portlet--bordered m-portlet--unair m-l-5  m-b-5 text-center hover-card" (click)="importGmail()">
+					<div class="m-portlet__body">
+						<img src="assets/gmail.svg" alt="" class="img-fluid img-svg">
+						<h5>Contacts from Gmail</h5>
+					</div>
+				</div>
+				<p class="text-center">
+					<small>Import contacts straight from your gmail</small>
+				</p>
+			</div>
+
+		</div>
+
+	</div>
+
+</div>
