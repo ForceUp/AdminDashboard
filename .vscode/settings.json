@@ -1,8 +1,11 @@
 {
-    "editor.insertSpaces": false,
+	"editor.insertSpaces": false,
 	"editor.detectIndentation": false,
 	"files.autoSave": "onWindowChange",
 	"editor.formatOnType": true,
 	"html.format.wrapLineLength": 0,
 	"terminal.integrated.scrollback": 200,
+	"gitProjectManager.ignoredFolders": [
+		"node_modules"
+	],
 }
