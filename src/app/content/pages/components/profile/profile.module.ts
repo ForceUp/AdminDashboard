@@ -32,7 +32,6 @@ import {
 import { RouterModule, Routes } from '@angular/router';
 import { ProfileComponent } from './profile.component';
 import { ProfileCalendarComponent } from './profile-calendar/profile-calendar.component';
-import { FullCalendarModule } from 'ng-fullcalendar';
 import { ProfileSalesMetricsComponent } from './profile-sales-metrics/profile-sales-metrics.component';
 import { ProfilePipelineBreakupComponent } from './profile-sales-metrics/profile-pipeline-breakup/profile-pipeline-breakup.component';
 import { ProfileSalesPerformanceComponent } from './profile-sales-metrics/profile-sales-performance/profile-sales-performance.component';
@@ -43,6 +42,7 @@ import { ProfileBestEverVsCurrentComponent } from './profile-sales-metrics/profi
 import { ProfileProspectsComponent } from './profile-prospects/profile-prospects.component';
 import { ProfileActivityComponent } from './profile-activity/profile-activity.component';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
+import { CoreModule } from '../../../../core/core.module';
 const routes: Routes = [
 	{
 		path: '',
@@ -60,6 +60,7 @@ const routes: Routes = [
 @NgModule({
 	imports: [
 		CommonModule,
+		CoreModule,
 		LayoutModule,
 		PartialsModule,
 		PerfectScrollbarModule,
@@ -97,7 +98,6 @@ const routes: Routes = [
 		MatAutocompleteModule,
 		MatSnackBarModule,
 		MatTooltipModule,
-		FullCalendarModule,
 		RouterModule.forChild(routes)
 	],
 	declarations: [
@@ -109,7 +109,6 @@ const routes: Routes = [
 		ProfileDealStageFunnelComponent,
 		ProfileLostDealsComponent,
 		ProfileBestEverVsCurrentComponent,
-		ProfileProspectsComponent,
 		ProfileActivityComponent
 	]
 })

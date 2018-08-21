@@ -1,0 +1,34 @@
+<mat-drawer-container class="row" hasBackdrop="false">
+	<mat-drawer #drawer mode="push">
+		<m-assign-lead-sidebar></m-assign-lead-sidebar>
+	</mat-drawer>
+	<mat-drawer-content>
+		<div class="col-12 p-0">
+			<div class="m-portlet m-portlet--bordered m-portlet--unair m-b-o">
+				<div class="m-portlet__body p-5">
+
+					<agm-map [latitude]="lat" [longitude]="lng">
+
+						<agm-marker *ngFor="let marker of markers" [latitude]="marker.lat" [longitude]="marker.lng">
+							<agm-info-window #infoWindow>
+								<strong>{{marker.name}}</strong>
+								<br>
+							</agm-info-window>
+						</agm-marker>
+
+						<agm-polyline *ngFor="let polyline of polylines;let i = index;" [strokeColor]="polyline.color">
+							<agm-polyline-point *ngFor="let point of polyline.path" [latitude]="point.latitude" [longitude]="point.longitude">
+							</agm-polyline-point>
+						</agm-polyline>
+
+					</agm-map>
+
+				</div>
+			</div>
+		</div>
+		<button mat-raised-button color="primary" class="map-button" (click)="drawer.toggle()">
+			<mat-icon>filter_list</mat-icon>
+			<span>FILTER</span>
+		</button>
+	</mat-drawer-content>
+</mat-drawer-container>

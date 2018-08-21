@@ -35,6 +35,20 @@ export class MenuConfig implements ConfigModel {
 						bullet: 'dot',
 						icon: 'flaticon-user',
 						page: '/team-board'
+					},
+					{
+						title: 'Leads Board',
+						root: true,
+						bullet: 'dot',
+						icon: 'flaticon-interface-8',
+						page: '/assign-lead'
+					},
+					{
+						title: 'Pipeline',
+						root: true,
+						bullet: 'dot',
+						icon: 'flaticon-business',
+						page: '/pipeline'
 					}
 				]
 			}

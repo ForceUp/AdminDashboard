@@ -22,9 +22,9 @@ export class DashboardComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
-		this.dashboardService.getDashboardData().subscribe(data => {
-			debugger;
-			this.dashboardData = data;
-		});
+		// this.dashboardService.getDashboardData().subscribe(data => {
+		// 	debugger;
+		// 	this.dashboardData = data;
+		// });
 	}
 }

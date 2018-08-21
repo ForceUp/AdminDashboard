@@ -34,6 +34,11 @@ const routes: Routes = [
 				component: ActionComponent
 			},
 			{
+				path: 'assign-lead',
+				loadChildren:
+					'./components/assign-lead/assign-lead.module#AssignLeadModule'
+			},
+			{
 				path: 'profile',
 				loadChildren:
 					'./components/profile/profile.module#ProfileModule'
@@ -41,6 +46,11 @@ const routes: Routes = [
 			{
 				path: 'leads',
 				loadChildren: './components/leads/leads.module#LeadsModule'
+			},
+			{
+				path: 'pipeline',
+				loadChildren:
+					'./components/pipeline/pipeline.module#PipelineModule'
 			}
 		]
 	},

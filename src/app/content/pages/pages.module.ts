@@ -13,12 +13,13 @@ import { ErrorPageComponent } from './snippets/error-page/error-page.component';
 import { TeamBoardModule } from './components/team-board/team-board.module';
 import { ProfileModule } from './components/profile/profile.module';
 import { LeadsModule } from './components/leads/leads.module';
+import { PipelineModule } from './components/pipeline/pipeline.module';
 
 @NgModule({
 	declarations: [
 		PagesComponent,
 		ActionComponent,
-		ErrorPageComponent,
+		ErrorPageComponent
 	],
 	imports: [
 		CommonModule,
@@ -32,7 +33,9 @@ import { LeadsModule } from './components/leads/leads.module';
 		TeamBoardModule,
 		ProfileModule,
 		LeadsModule,
+		PipelineModule
 	],
-	providers: []
+	providers: [],
+	exports: []
 })
 export class PagesModule {}

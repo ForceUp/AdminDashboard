@@ -6,7 +6,6 @@ import { LayoutModule } from '../../../layout/layout.module';
 import { PartialsModule } from '../../../partials/partials.module';
 import { ListTimelineModule } from '../../../partials/layout/quick-sidebar/list-timeline/list-timeline.module';
 import { WidgetChartsModule } from '../../../partials/content/widgets/charts/widget-charts.module';
-import { PipelineBreakupComponent } from './pipeline-breakup/pipeline-breakup.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ChartsModule } from 'ng2-charts';
 import { SalesPerformanceComponent } from './sales-performance/sales-performance.component';
@@ -39,7 +38,6 @@ import { HttpClientModule } from '@angular/common/http';
 	providers: [DashboardService],
 	declarations: [
 		DashboardComponent,
-		PipelineBreakupComponent,
 		SalesPerformanceComponent,
 		DealStageFunnelComponent,
 		BestEverVsCurrentComponent,

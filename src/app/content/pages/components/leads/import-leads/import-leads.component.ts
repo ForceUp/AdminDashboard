@@ -22,14 +22,9 @@ export class ImportLeadsComponent implements OnInit {
 
 	importCSV(): void {}
 	importGmail(): void {
-		if (!this.googleUserService.isUserSignedIn()) {
-			this.googleUserService.signIn().subscribe((auth: any) => {
-				// debugger;
-				this.router.navigate(['leads/import-gmail-contacts']);
-			});
-		} else {
-			// const user = this.googleUserService.getCurrentUser();
+		this.googleUserService.signIn().subscribe((auth: any) => {
+			// debugger;
 			this.router.navigate(['leads/import-gmail-contacts']);
-		}
+		});
 	}
 }

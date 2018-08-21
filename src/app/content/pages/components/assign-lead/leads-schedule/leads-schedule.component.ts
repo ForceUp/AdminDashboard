@@ -1,12 +1,12 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import * as moment from 'moment';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 
+import * as moment from 'moment';
 @Component({
-	selector: 'm-profile-calendar',
-	templateUrl: './profile-calendar.component.html',
-	styleUrls: ['./profile-calendar.component.scss']
+	selector: 'm-leads-schedule',
+	templateUrl: './leads-schedule.component.html',
+	styleUrls: ['./leads-schedule.component.scss']
 })
-export class ProfileCalendarComponent implements OnInit {
+export class LeadsScheduleComponent implements OnInit, AfterViewInit {
 	calendarOptions: any;
 	constructor() {}
 
@@ -30,10 +30,11 @@ export class ProfileCalendarComponent implements OnInit {
 		this.calendarOptions = {
 			editable: true,
 			eventLimit: false,
+			defaultView: 'agendaDay',
 			header: {
-				left: 'prev,next today',
+				left: 'prev,next',
 				center: 'title',
-				right: 'month,agendaWeek,agendaDay,listMonth'
+				right: 'agendaDay,listMonth'
 			},
 			events: [
 				{
@@ -135,4 +136,5 @@ export class ProfileCalendarComponent implements OnInit {
 			]
 		};
 	}
+	ngAfterViewInit() {}
 }

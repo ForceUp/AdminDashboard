@@ -37,7 +37,19 @@ import { MatInputModule,
     MatButtonModule,
     MatCheckboxModule,
     MatIconModule,
-    MatTooltipModule} from '@angular/material';
+    MatTooltipModule,
+	MatMenuModule,
+	MatDialogModule,
+	MatTabsModule,
+	MatNativeDateModule,
+	MatCardModule,
+	MatRadioModule,
+	MatDatepickerModule,
+	MatAutocompleteModule,
+	MatSnackBarModule} from '@angular/material';
+import { PipelineBreakupComponent } from '../pages/components/dashboard/pipeline-breakup/pipeline-breakup.component';
+import { ProfileProspectsComponent } from '../pages/components/profile/profile-prospects/profile-prospects.component';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
 	declarations: [
@@ -58,6 +70,8 @@ import { MatInputModule,
 		AuthorProfitComponent,
 		DataTableComponent,
 		StatComponent,
+		PipelineBreakupComponent,
+		ProfileProspectsComponent
 	],
 	exports: [
 		QuickSidebarComponent,
@@ -77,9 +91,10 @@ import { MatInputModule,
 		AuthorProfitComponent,
 		DataTableComponent,
 		StatComponent,
-
+		PipelineBreakupComponent,
 		PortletModule,
-		SpinnerButtonModule
+		SpinnerButtonModule,
+		ProfileProspectsComponent
 	],
 	imports: [
 		CommonModule,
@@ -101,7 +116,38 @@ import { MatInputModule,
 		MatCheckboxModule,
 		MatIconModule,
 		MatTooltipModule,
-		WidgetChartsModule
+		WidgetChartsModule,
+		ChartsModule,
+		MatSortModule,
+		MatProgressSpinnerModule,
+		MatTableModule,
+		MatPaginatorModule,
+		MatSelectModule,
+		MatProgressBarModule,
+		MatButtonModule,
+		MatCheckboxModule,
+		MatIconModule,
+		MatTooltipModule,
+		MatInputModule,
+		MatPaginatorModule,
+		MatProgressSpinnerModule,
+		MatSortModule,
+		MatTableModule,
+		MatSelectModule,
+		MatMenuModule,
+		MatProgressBarModule,
+		MatButtonModule,
+		MatCheckboxModule,
+		MatDialogModule,
+		MatTabsModule,
+		MatNativeDateModule,
+		MatCardModule,
+		MatRadioModule,
+		MatIconModule,
+		MatDatepickerModule,
+		MatAutocompleteModule,
+		MatSnackBarModule,
+		MatTooltipModule,
 	]
 })
 export class PartialsModule {}

@@ -24,9 +24,9 @@ import {
 	MatSidenavModule
 } from '@angular/material';
 import { GoogleApiModule, NG_GAPI_CONFIG } from 'ng-gapi';
-import { ImportLeadsComponent } from './import-leads/import-leads.component';
+
 import { Routes, RouterModule } from '@angular/router';
-import { LeadsComponent } from './leads.component';
+
 import { LayoutModule } from '@angular/cdk/layout';
 import { PartialsModule } from '../../../partials/partials.module';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
@@ -35,25 +35,21 @@ import { WidgetChartsModule } from '../../../partials/content/widgets/charts/wid
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ChartsModule } from 'ng2-charts';
 import { HttpClientModule } from '@angular/common/http';
-import { ImportGmailContactsComponent } from './import-gmail-contacts/import-gmail-contacts.component';
+
 import { gapiClientConifg } from '../../../../config/google-api-config';
-import { GmailUserService } from './gmail-user.service';
+
 import { AgmCoreModule } from '@agm/core';
 import { AgmDirectionModule } from 'agm-direction';
-
+import { AssignLeadComponent } from './assign-lead.component';
+import { AssignLeadSidebarComponent } from './assign-lead-sidebar/assign-lead-sidebar.component';
+import { LeadsTableComponent } from './leads-table/leads-table.component';
+import { LeadsScheduleComponent } from './leads-schedule/leads-schedule.component';
+import { CoreModule } from '../../../../core/core.module';
 
 const routes: Routes = [
 	{
 		path: '',
-		component: LeadsComponent,
-		children: [
-			{ path: '', redirectTo: 'import', pathMatch: 'full' },
-			{ path: 'import', component: ImportLeadsComponent },
-			{
-				path: 'import-gmail-contacts',
-				component: ImportGmailContactsComponent
-			}
-		]
+		component: AssignLeadComponent
 	}
 ];
 
@@ -94,6 +90,7 @@ const routes: Routes = [
 		MatCardModule,
 		MatRadioModule,
 		MatSidenavModule,
+		CoreModule,
 		MatIconModule,
 		MatDatepickerModule,
 		MatAutocompleteModule,
@@ -109,11 +106,12 @@ const routes: Routes = [
 		AgmDirectionModule,
 		RouterModule.forChild(routes)
 	],
-	providers: [GmailUserService],
+	providers: [],
 	declarations: [
-		LeadsComponent,
-		ImportLeadsComponent,
-		ImportGmailContactsComponent
+		AssignLeadSidebarComponent,
+		AssignLeadComponent,
+		LeadsTableComponent,
+		LeadsScheduleComponent
 	]
 })
-export class LeadsModule {}
+export class AssignLeadModule {}

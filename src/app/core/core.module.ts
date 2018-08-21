@@ -18,6 +18,7 @@ import { GetObjectPipe } from './pipes/get-object.pipe';
 import { ConsoleLogPipe } from './pipes/console-log.pipe';
 import { SafePipe } from './pipes/safe.pipe';
 import { PortletDirective } from './directives/portlet.directive';
+import { FullCalendarDirective } from './directives/fullCalendar.directive';
 
 @NgModule({
 	imports: [CommonModule],
@@ -35,6 +36,7 @@ import { PortletDirective } from './directives/portlet.directive';
 		ClipboardDirective,
 		TabLineDirective,
 		PortletDirective,
+		FullCalendarDirective,
 		// pipes
 		FirstLetterPipe,
 		TimeElapsedPipe,
@@ -57,6 +59,7 @@ import { PortletDirective } from './directives/portlet.directive';
 		ClipboardDirective,
 		TabLineDirective,
 		PortletDirective,
+		FullCalendarDirective,
 		// pipes
 		FirstLetterPipe,
 		TimeElapsedPipe,
