@@ -41,6 +41,7 @@
 		"material-design-icons": "^3.0.1",
 		"ng-gapi": "0.0.51",
 		"ng2-charts": "^1.6.0",
+		"ng2-daterangepicker": "^2.0.12",
 		"ngx-auth": "4.0.0",
 		"ngx-highlightjs": "^2.0.4",
 		"ngx-perfect-scrollbar": "^6.2.0",

@@ -15,7 +15,7 @@ export class AssignLeadComponent implements OnInit {
 	polyline: any[];
 	maxSpeed: number;
 	constructor(private subheaderService: SubheaderService) {
-		this.subheaderService.title$.next('Assign Lead');
+
 	}
 
 	private rebuildPolylines() {
@@ -46,6 +46,7 @@ export class AssignLeadComponent implements OnInit {
 	}
 
 	ngOnInit() {
+		this.subheaderService.title$.next('Assign Lead');
 		this.maxSpeed = 40;
 		this.markers = [
 			{

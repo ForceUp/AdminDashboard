@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SubheaderService } from '../../../../core/services/layout/subheader.service';
 
 @Component({
 	selector: 'm-leads',
@@ -6,7 +7,9 @@ import { Component, OnInit } from '@angular/core';
 	styleUrls: ['./leads.component.scss']
 })
 export class LeadsComponent implements OnInit {
-	constructor() {}
+	constructor(private subheaderService: SubheaderService) {}
 
-	ngOnInit() {}
+	ngOnInit() {
+		this.subheaderService.title$.next('Import');
+	}
 }

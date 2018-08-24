@@ -24,11 +24,17 @@ import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { MatProgressBarModule, MatTabsModule, MatButtonModule } from '@angular/material';
+import {
+	MatProgressBarModule,
+	MatTabsModule,
+	MatButtonModule
+} from '@angular/material';
 
 import { TranslateModule } from '@ngx-translate/core';
 import { LoadingBarModule } from '@ngx-loading-bar/core';
 import { FormsModule } from '@angular/forms';
+
+import { Daterangepicker } from 'ng2-daterangepicker';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 	// suppressScrollX: true
@@ -61,8 +67,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 
 		SearchDefaultComponent,
 
-		HeaderSearchComponent,
-
+		HeaderSearchComponent
 	],
 	exports: [
 		HeaderComponent,
@@ -97,6 +102,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 	imports: [
 		CommonModule,
 		RouterModule,
+		Daterangepicker,
 		CoreModule,
 		PerfectScrollbarModule,
 		NgbModule,
@@ -106,7 +112,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 		MatTabsModule,
 		MatButtonModule,
 		TranslateModule.forChild(),
-		LoadingBarModule.forRoot(),
+		LoadingBarModule.forRoot()
 	]
 })
 export class LayoutModule {}
