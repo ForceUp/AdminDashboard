@@ -5,6 +5,7 @@ import { ActionComponent } from './header/action/action.component';
 import { NgxPermissionsGuard } from 'ngx-permissions';
 import { ProfileComponent } from './components/profile/profile.component';
 import { ErrorPageComponent } from './snippets/error-page/error-page.component';
+import { AgentPerformanceComponent } from './components/agent-performance/agent-performance.component';
 
 const routes: Routes = [
 	{
@@ -37,6 +38,10 @@ const routes: Routes = [
 				path: 'assign-lead',
 				loadChildren:
 					'./components/assign-lead/assign-lead.module#AssignLeadModule'
+			},
+			{
+				path: 'profile-performance',
+				component: AgentPerformanceComponent
 			},
 			{
 				path: 'profile',

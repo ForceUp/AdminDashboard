@@ -21,7 +21,8 @@ import {
 	MatDatepickerModule,
 	MatAutocompleteModule,
 	MatSnackBarModule,
-	MatSidenavModule
+	MatSidenavModule,
+	MatFormFieldModule
 } from '@angular/material';
 import { GoogleApiModule, NG_GAPI_CONFIG } from 'ng-gapi';
 import { ImportLeadsComponent } from './import-leads/import-leads.component';
@@ -40,7 +41,8 @@ import { gapiClientConifg } from '../../../../config/google-api-config';
 import { GmailUserService } from './gmail-user.service';
 import { AgmCoreModule } from '@agm/core';
 import { AgmDirectionModule } from 'agm-direction';
-
+import { ImportLeadModalComponent } from './import-leads/import-lead-modal/import-lead-modal.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 const routes: Routes = [
 	{
@@ -85,6 +87,7 @@ const routes: Routes = [
 		MatTableModule,
 		MatSelectModule,
 		MatMenuModule,
+		MatFormFieldModule,
 		MatProgressBarModule,
 		MatButtonModule,
 		MatCheckboxModule,
@@ -99,6 +102,8 @@ const routes: Routes = [
 		MatAutocompleteModule,
 		MatSnackBarModule,
 		MatTooltipModule,
+		FormsModule,
+		ReactiveFormsModule,
 		GoogleApiModule.forRoot({
 			provide: NG_GAPI_CONFIG,
 			useValue: gapiClientConifg
@@ -113,7 +118,9 @@ const routes: Routes = [
 	declarations: [
 		LeadsComponent,
 		ImportLeadsComponent,
-		ImportGmailContactsComponent
-	]
+		ImportGmailContactsComponent,
+		ImportLeadModalComponent
+	],
+	entryComponents: [ImportLeadModalComponent]
 })
 export class LeadsModule {}

@@ -3,7 +3,7 @@
 }
 
 .img-svg {
-	width: 100px !important;
+	width: 80px !important;
 	margin-bottom: 5px;
 }
 
@@ -15,8 +15,8 @@
 	width: 50%;
 }
 
-.flex-50 {
-	flex: 1 1 50%;
+.flex-33 {
+	flex: 1 1 33%;
 }
 
 .m-l-5 {
@@ -32,7 +32,17 @@
 	box-shadow: 0px 1px 15px 1px rgba(69, 65, 78, 0.64);
 	cursor: pointer;
 }
+.m-portlet .m-portlet__body {
+    padding: 2.2rem 2.0rem !important;
+}
+
 
 .hover-card {
 	border: 1px solid #c286ef57;
+	transition: all 0.5s;
+}
+
+.min-height-215 {
+	min-height: 160px !important;
+	;
 }

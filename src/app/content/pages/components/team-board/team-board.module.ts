@@ -11,7 +11,6 @@ import { WidgetChartsModule } from '../../../partials/content/widgets/charts/wid
 
 import { TeamBoardComponent } from './team-board.component';
 import { TopFivePersonsComponent } from './top-five-persons/top-five-persons.component';
-import { AgentPerformanceComponent } from './agent-performance/agent-performance.component';
 import { ForecastByRepComponent } from './forecast-by-rep/forecast-by-rep.component';
 import {
 	MatSortModule,
@@ -56,7 +55,6 @@ import { DealsComponent } from './deals/deals.component';
 	declarations: [
 		TeamBoardComponent,
 		TopFivePersonsComponent,
-		AgentPerformanceComponent,
 		ForecastByRepComponent,
 		DealsComponent
 	]

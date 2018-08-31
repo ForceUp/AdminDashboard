@@ -12,12 +12,7 @@ import { DashboardService } from './dashboard.service';
 export class DashboardComponent implements OnInit {
 	public config: any;
 	dashboardData: any;
-	constructor(
-		private router: Router,
-		private configService: LayoutConfigService,
-		private subheaderService: SubheaderService,
-		private dashboardService: DashboardService
-	) {
+	constructor(private dashboardService: DashboardService) {
 		// this.subheaderService.setTitle('Dashboard');
 	}
 

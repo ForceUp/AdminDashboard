@@ -1,0 +1,37 @@
+:host {
+	.flex-20 {
+		flex: 1 1 20%;
+	}
+
+	.flex-auto {
+		flex: 1 1 auto;
+	}
+
+	.m-widget4__sub {
+		font-size: 1em !important;
+		font-weight: bold !important;
+	}
+
+	.m-widget4__number {
+		font-size: 1.5rem;
+		font-weight: 600;
+	}
+
+	.widget4__sales {
+		font-size: 1rem;
+	}
+
+	::ng-deep .m-portlet .m-portlet__head.m-portlet__head--fit {
+		display: none !important;
+		visibility: hidden !important;
+	}
+
+	::ng-deep .m-portlet .m-portlet__body {
+		background: #f2f3f8;
+	}
+
+	::ng-deep .m-widget4 .m-widget4__item {
+		background: white ;
+		margin-bottom: 10px;
+	}
+}

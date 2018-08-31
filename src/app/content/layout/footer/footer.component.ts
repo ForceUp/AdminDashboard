@@ -11,7 +11,7 @@ import * as objectPath from 'object-path';
 })
 export class FooterComponent implements OnInit {
 	@HostBinding('class') classes = 'm-grid__item m-footer';
-
+date;
 	footerContainerClass$: BehaviorSubject<string> = new BehaviorSubject('');
 
 	constructor(private configService: LayoutConfigService) {
@@ -29,5 +29,7 @@ export class FooterComponent implements OnInit {
 		});
 	}
 
-	ngOnInit(): void {}
+	ngOnInit(): void {
+		this.date = new Date();
+	}
 }

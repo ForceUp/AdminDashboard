@@ -4,34 +4,51 @@
 			<h4>What would you like to import ?</h4>
 		</div>
 	</div>
-	<div class="d-flex justify-content-center w-100">
-		<div class="d-flex justify-content-center w-50">
-			<div class="d-flex flex-column justify-content-center flex-50" >
-				<div class="m-portlet m-portlet--bordered m-portlet--unair m-r-5 m-b-5 text-center hover-card" (click)="importCSV()">
-					<div class="m-portlet__body">
-						<img src="assets/evaluation.svg" alt="" class="img-fluid img-svg">
-						<h5>A CSV file</h5>
-					</div>
-				</div>
-				<p class="text-center">
-					<small>Upload a CSV file or a plain text file in CSV format</small>
-				</p>
-			</div>
+</div>
 
-			<div class="d-flex flex-column justify-content-center flex-50 ">
-				<div class="m-portlet m-portlet--bordered m-portlet--unair m-l-5  m-b-5 text-center hover-card" (click)="importGmail()">
-					<div class="m-portlet__body">
-						<img src="assets/gmail.svg" alt="" class="img-fluid img-svg">
-						<h5>Contacts from Gmail</h5>
-					</div>
-				</div>
-				<p class="text-center">
-					<small>Import contacts straight from your gmail</small>
-				</p>
-			</div>
+<div class="row justify-content-center">
 
+	<div class="col-12 col-md-4 col-lg-4 col-xl-3">
+		<div class="d-flex flex-column justify-content-center">
+			<div class="m-portlet m-portlet--bordered m-portlet--unair m-r-5 m-b-5 text-center hover-card min-height-215" (click)="uploadLeadManually()">
+				<div class="m-portlet__body">
+					<img src="assets/file.svg" alt="" class="img-fluid img-svg">
+					<h5>Add Manually</h5>
+				</div>
+			</div>
 		</div>
+		<p class="text-center">
+			<small>Add contacts manually </small>
+		</p>
+	</div>
 
+
+	<div class="col-12 col-md-4 col-lg-4 col-xl-3">
+		<div class="d-flex flex-column justify-content-center">
+			<div class="m-portlet m-portlet--bordered m-portlet--unair m-r-5 m-b-5 text-center hover-card min-height-215" (click)="importCSV()">
+				<div class="m-portlet__body">
+					<img src="assets/evaluation.svg" alt="" class="img-fluid img-svg">
+					<h5>A CSV file</h5>
+				</div>
+			</div>
+		</div>
+		<p class="text-center">
+			<small>Upload a CSV file or a plain text file in CSV format</small>
+		</p>
+	</div>
+
+	<div class="col-12 col-md-4 col-lg-4 col-xl-3">
+		<div class="d-flex flex-column justify-content-center">
+			<div class="m-portlet m-portlet--bordered m-portlet--unair m-l-5  m-b-5 text-center hover-card min-height-215" (click)="importGmail()">
+				<div class="m-portlet__body">
+					<img src="assets/gmail.svg" alt="" class="img-fluid img-svg">
+					<h5>Contacts from Gmail</h5>
+				</div>
+			</div>
+		</div>
+		<p class="text-center">
+			<small>Import contacts straight from your gmail</small>
+		</p>
 	</div>
 
 </div>

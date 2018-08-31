@@ -37,6 +37,13 @@ export class MenuConfig implements ConfigModel {
 						page: '/team-board'
 					},
 					{
+						title: 'Profile Performance',
+						root: true,
+						bullet: 'dot',
+						icon: 'flaticon-network',
+						page: '/profile-performance'
+					},
+					{
 						title: 'Leads Board',
 						root: true,
 						bullet: 'dot',
