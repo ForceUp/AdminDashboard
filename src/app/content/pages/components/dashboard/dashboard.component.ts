@@ -1,25 +1,35 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { LayoutConfigService } from '../../../../core/services/layout-config.service';
-import { SubheaderService } from '../../../../core/services/layout/subheader.service';
-import { DashboardService } from './dashboard.service';
+import {
+	ChangeDetectionStrategy,
+	Component,
+	OnInit,
+	OnDestroy
+} from '@angular/core';
+import { AuthenticationService } from '../../../../core/auth/authentication.service';
+import { Subscription } from 'rxjs';
 
 @Component({
 	selector: 'm-dashboard',
 	templateUrl: './dashboard.component.html',
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements OnInit, OnDestroy {
 	public config: any;
+	onDashboardData$: Subscription;
 	dashboardData: any;
-	constructor(private dashboardService: DashboardService) {
+	constructor(private authService: AuthenticationService) {
 		// this.subheaderService.setTitle('Dashboard');
 	}
 
 	ngOnInit(): void {
-		// this.dashboardService.getDashboardData().subscribe(data => {
-		// 	debugger;
-		// 	this.dashboardData = data;
-		// });
+		this.onDashboardData$ = this.authService.onDashboardData$.subscribe(
+			data => {
+				debugger;
+				this.dashboardData = data;
+			}
+		);
+	}
+
+	ngOnDestroy(): void {
+		this.onDashboardData$.unsubscribe();
 	}
 }

@@ -2,7 +2,11 @@ import { BehaviorSubject, Observable, Subject, from, throwError } from 'rxjs';
 import { map, catchError, tap, switchMap } from 'rxjs/operators';
 
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import {
+	HttpClient,
+	HttpErrorResponse,
+	HttpHeaders
+} from '@angular/common/http';
 import { AuthService } from 'ngx-auth';
 
 import { TokenStorage } from './token-storage.service';
@@ -12,14 +16,13 @@ import { Credential } from './credential';
 
 @Injectable()
 export class AuthenticationService implements AuthService {
-	// API_URL = 'http://46.101.138.54:8080/forceapi/';
-	// API_ENDPOINT_LOGIN = 'users/webAction/teamresult';
 	API_URL = 'api';
 	API_ENDPOINT_LOGIN = '/login';
 	API_ENDPOINT_REFRESH = '/refresh';
 	API_ENDPOINT_REGISTER = '/register';
 
 	public onCredentialUpdated$: Subject<AccessData>;
+	onDashboardData$: BehaviorSubject<any> = new BehaviorSubject(null);
 
 	constructor(
 		private http: HttpClient,
@@ -107,20 +110,31 @@ export class AuthenticationService implements AuthService {
 	 * @returns {Observable<any>}
 	 */
 	public login(credential: Credential): Observable<any> {
-		// debugger {
-		// 	Karthik: { userName: credential.username , password: credential.password }
-		// };
-		return this.http.get(this.API_URL + this.API_ENDPOINT_LOGIN).pipe(
-			map((result: any) => {
-				debugger;
-				if (result instanceof Array) {
-					return result.pop();
+		return this.http
+			.post(
+				'https://api.forceupapp.com/users/webAction/1', // this.API_URL + this.API_ENDPOINT_LOGIN,
+				{
+					Karthik: {
+						userName: credential.username,
+						password: credential.password
+					}
+				},
+				{
+					headers: new HttpHeaders({
+						'Content-Type': 'application/json'
+					})
 				}
-				return result;
-			}),
-			tap(this.saveAccessData.bind(this)),
-			catchError(this.handleError('login', []))
-		);
+			)
+			.pipe(
+				map((result: any) => {
+					if (result instanceof Array) {
+						return result.pop();
+					}
+					return result;
+				}),
+				tap(this.saveAccessData.bind(this)),
+				catchError(this.handleError('login', []))
+			);
 	}
 
 	/**
@@ -131,8 +145,9 @@ export class AuthenticationService implements AuthService {
 	 */
 	private handleError<T>(operation = 'operation', result?: any) {
 		return (error: any): Observable<any> => {
+			debugger;
 			// TODO: send the error to remote logging infrastructure
-			console.error(error); // log to console instead
+			console.log(error); // log to console instead
 
 			// Let the app keep running by returning an empty result.
 			return from(result);
@@ -154,14 +169,19 @@ export class AuthenticationService implements AuthService {
 	 * @private
 	 * @param {AccessData} data
 	 */
-	private saveAccessData(accessData: AccessData) {
-		if (typeof accessData !== 'undefined') {
-			this.tokenStorage
-				.setAccessToken(accessData.accessToken)
-				.setRefreshToken(accessData.refreshToken)
-				.setUserRoles(accessData.roles);
-			this.onCredentialUpdated$.next(accessData);
-		}
+	private saveAccessData(data: any) {
+		this.onDashboardData$.next(data);
+		// if (typeof accessData !== 'undefined') {
+		this.tokenStorage
+			.setAccessToken('access-token-' + Math.random())
+			.setRefreshToken('access-token-' + Math.random())
+			.setUserRoles(['ADMIN']);
+		this.onCredentialUpdated$.next({
+			accessToken: 'access-token-' + Math.random(),
+			refreshToken: 'access-token-' + Math.random(),
+			roles: ['ADMIN']
+		});
+		// }
 	}
 
 	/**
