@@ -1,0 +1,54 @@
+<div class="modal-header">
+	<h4 class="modal-title">Add Rep</h4>
+	<button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss()">
+		<span aria-hidden="true">&times;</span>
+	</button>
+</div>
+<div class="modal-body">
+	<form class="m-form">
+		<div class="m-portlet__body">
+			<div class="m-form__section m-form__section--first">
+				<div class="form-group m-form__group">
+					<mat-form-field class="example-full-width">
+						<input matInput placeholder="Enter full name">
+						<mat-hint align="start">Please enter your full name</mat-hint>
+					</mat-form-field>
+				</div>
+				<div class="form-group m-form__group">
+					<mat-form-field class="example-full-width">
+						<input matInput placeholder="Enter email" type="email">
+						<mat-hint align="start">We'll never share your email with anyone else</mat-hint>
+					</mat-form-field>
+				</div>
+				<div class="form-group m-form__group">
+					<mat-form-field class="example-full-width">
+						<input matInput placeholder="State" aria-label="State" [matAutocomplete]="auto" [formControl]="stateCtrl">
+						<mat-autocomplete #auto="matAutocomplete">
+							<mat-option *ngFor="let state of filteredStates | async" [value]="state.name">
+								<img style="vertical-align:middle;" aria-hidden src="{{state.flag}}" height="25" />
+								<span>{{ state.name }}</span> |
+								<small>Population: {{state.population}}</small>
+							</mat-option>
+						</mat-autocomplete>
+					</mat-form-field>
+				</div>
+				<div class="form-group m-form__group">
+					<mat-form-field class="example-full-width">
+						<input matInput placeholder="Amount" type="number" class="example-right-align" value="99.9">
+						<span matPrefix>$&nbsp;</span>
+					</mat-form-field>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+<div class="modal-footer d-flex flex-row justify-content-space-between ">
+	<div>
+		<button  mat-raised-button color="warn" (click)="saveAndNew()">Save & Add New</button>
+	</div>
+	<div>
+		<button type="button" class="btn btn-outline-dark  m--margin-right-10" (click)="activeModal.dismiss()">Close</button>
+		<button mat-raised-button color="primary" (click)="save()">Submit</button>
+	</div>
+
+</div>

@@ -56,6 +56,20 @@ const routes: Routes = [
 				path: 'pipeline',
 				loadChildren:
 					'./components/pipeline/pipeline.module#PipelineModule'
+			},
+			{
+				path: 'deals',
+				loadChildren: './components/deals/deals.module#DealsModule'
+			},
+			{
+				path: 'miscellaneous',
+				loadChildren:
+					'./components/user-onboarding/user-onboarding.module#UserOnboardingModule'
+			},
+			{
+				path: 'productivity',
+				loadChildren:
+					'./components/productivity/productivity.module#ProductivityModule'
 			}
 		]
 	},

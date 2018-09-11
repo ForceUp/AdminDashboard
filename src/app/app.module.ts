@@ -44,6 +44,7 @@ import { SplashScreenService } from './core/services/splash-screen.service';
 import { DataTableService } from './core/services/datatable.service';
 
 import 'hammerjs';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 	// suppressScrollX: true
@@ -57,6 +58,9 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 		BrowserModule,
 		AppRoutingModule,
 		HttpClientModule,
+		HttpClientInMemoryWebApiModule.forRoot(FakeApiService, {
+			passThruUnknownUrl: true
+		}),
 		LayoutModule,
 		PartialsModule,
 		CoreModule,

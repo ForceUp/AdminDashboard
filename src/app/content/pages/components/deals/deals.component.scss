@@ -1,0 +1,20 @@
+:host {
+
+
+	::ng-deep .mat-table__wrapper .mat-table .email-cell {
+		word-wrap: normal;
+		width: 120px;
+		flex: auto;
+	}
+
+	::ng-deep .mat-drawer-container {
+		background: #ffffff !important;
+
+		.mat-drawer-content {
+			width: 100%;
+			overflow: hidden !important;
+		}
+
+	}
+
+}

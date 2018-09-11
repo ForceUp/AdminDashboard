@@ -14,7 +14,17 @@ export class MenuConfig implements ConfigModel {
 						title: 'Import Leads',
 						root: true,
 						icon: 'flaticon-file',
-						page: '/leads/import',
+						page: '/leads/import'
+					},
+					{
+						title: 'Productivity',
+						root: true,
+						icon: 'flaticon-paper-plane',
+						badge: {
+							type: 'm-badge--brand m-badge--wide',
+							value: '79%'
+						},
+						page: '/productivity'
 					}
 				]
 			},
@@ -56,6 +66,20 @@ export class MenuConfig implements ConfigModel {
 						bullet: 'dot',
 						icon: 'flaticon-business',
 						page: '/pipeline'
+					},
+					{
+						title: 'Deals',
+						root: true,
+						bullet: 'dot',
+						icon: 'flaticon-interface-6',
+						page: '/deals'
+					},
+					{
+						title: 'Miscellaneous',
+						root: true,
+						bullet: 'dot',
+						icon: 'flaticon-interface-3',
+						page: '/miscellaneous'
 					}
 				]
 			}

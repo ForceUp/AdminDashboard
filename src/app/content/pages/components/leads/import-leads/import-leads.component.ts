@@ -26,10 +26,10 @@ export class ImportLeadsComponent implements OnInit {
 		const modalRef = this.modalService.open(ImportLeadModalComponent);
 
 		modalRef.result.then(result => {
-			debugger;
+			// debugger;
 			this.router.navigate(['leads/import-gmail-contacts']);
 		}, (reason) => {
-			debugger;
+			// debugger;
 		  });
 	}
 

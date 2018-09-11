@@ -1,0 +1,210 @@
+<m-portlet [options]="{headLarge: true}">
+	<ng-container mPortletHeadTitle>
+		<div class="m-portlet__head-title" style="margin-top:5px;">
+			<h3 class="m-portlet__head-text">
+				<span>Deals</span>
+			</h3>
+		</div>
+
+	</ng-container>
+
+	<ng-container mPortletHeadTools>
+		<div class="btn-group btn-group-toggle">
+
+			<label class="btn-primary" ngbButtonLabel>
+				<input type="checkbox" ngbButton [(ngModel)]="model.table"> Table
+			</label>
+
+			<label class="btn-primary" ngbButtonLabel>
+				<input type="checkbox" ngbButton [(ngModel)]="model.board"> Board
+			</label>
+
+		</div>
+		<button (click)="addDeal()" class="btn btn-info" matTooltip="Create deal" type="button">
+			<span>Create Deal</span>
+		</button>
+
+		<mat-form-field class="mat-form-field-fluid" style="margin-left:5px;">
+			<input matInput placeholder="Search Deal" #searchInput placeholder="Search">
+			<mat-hint align="start">
+				<strong>Search</strong> in all fields</mat-hint>
+		</mat-form-field>
+
+	</ng-container>
+
+	<ng-container mPortletBody>
+
+		<mat-sidenav-container>
+
+			<mat-sidenav #sidenav mode="over" position="end" [(opened)]="sidenavOpened" disableClose>
+				<m-deal-preview-sidenav (close)="close()" ></m-deal-preview-sidenav>
+			</mat-sidenav>
+
+			<mat-sidenav-content>
+				<div class="row align-items-center collapse m-form__group-actions m--margin-top-20 m--margin-bottom-20" [ngClass]="{'show' : selection.selected.length > 0}">
+					<!-- We show 'Group Actions' div if smth are selected -->
+					<div class="col-12">
+						<div class="m-form__group m-form__group--inline">
+							<div class="m-form__label m-form__label-no-wrap">
+								<label class="m--font-bold m--font-danger-">
+									<span>{{ selection.selected.length }}</span>
+								</label>
+							</div>
+							<div class="m-form__control m-form__group--inline">
+								<button mat-raised-button color="accent" matTooltip="Delete selected deals">
+									<mat-icon>delete</mat-icon> Delete All
+								</button>&nbsp;
+								<button mat-raised-button matTooltip="Fetch selected deals">
+									<mat-icon>clear_all</mat-icon> Fetch Selected
+								</button>&nbsp;
+								<button mat-raised-button matTooltip="Update status for selected deals">
+									<mat-icon>update</mat-icon> Update status
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- end::GROUP ACTIONS -->
+
+				<!-- end::FILTERS & GROUP ACTIONS -->
+				<div class="row jusify-content-center">
+					<div class="col-sm-3">
+						<ul class="m-nav">
+							<li class="m-nav__item">
+								<a href="" class="m-nav__link">
+									<i class="m-nav__link-icon flaticon-share"></i>
+									<span class="m-nav__link-text">All Deals</span>
+								</a>
+							</li>
+							<li class="m-nav__item">
+								<a href="" class="m-nav__link">
+									<i class="m-nav__link-icon flaticon-info"></i>
+									<span class="m-nav__link-text">All Saved Filters</span>
+								</a>
+							</li>
+							<li class="m-nav__item m-nav__item--active">
+								<a href="" class="m-nav__link">
+									<i class="m-nav__link-icon flaticon-chat-1"></i>
+									<span class="m-nav__link-title">
+										<span class="m-nav__link-wrap">
+											<span class="m-nav__link-text">Pipeline </span>
+										</span>
+									</span>
+								</a>
+								<ul class="m-nav__sub">
+									<li class="m-nav__item">
+										<a href="" class="m-nav__link">
+											<span class="m-nav__link-bullet m-nav__link-bullet--line"><span></span></span>
+											<span class="m-nav__link-text">Cinemas - UK</span>
+										</a>
+									</li>
+									<li class="m-nav__item">
+										<a href="" class="m-nav__link">
+											<span class="m-nav__link-bullet m-nav__link-bullet--line"><span></span></span>
+											<span class="m-nav__link-text">Replied</span>
+										</a>
+									</li>
+								</ul>
+							</li>
+							<li class="m-nav__item m-nav__item--active">
+								<a href="" class="m-nav__link">
+									<span class="m-nav__link-title">
+										<span class="m-nav__link-wrap">
+											<span class="m-nav__link-text">All Deals</span>
+											<span class="m-nav__link-badge">
+												<span class="m-badge m-badge--warning">8 deals</span>
+											</span>
+										</span>
+									</span>
+								</a>
+							</li>
+							<li class="m-nav__item">
+								<a href="" class="m-nav__link">
+									<i class="m-nav__link-icon flaticon-add"></i>
+									<span class="m-nav__link-text"> Add Filter</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="col-sm-9">
+						<div class="mat-table__wrapper">
+							<mat-table class="lmat-elevation-z8" [dataSource]="dataSource" matSort matSortActive="id" matSortDirection="asc" matSortDisableClear>
+								<!-- Checkbox Column -->
+
+								<ng-container matColumnDef="select">
+									<mat-header-cell *matHeaderCellDef class="mat-column-checkbox">
+										<mat-checkbox (change)="$event ? masterToggle() : null" [checked]="selection.hasValue() && isAllSelected()" [indeterminate]="selection.hasValue() && !isAllSelected()">
+										</mat-checkbox>
+
+									</mat-header-cell>
+									<mat-cell *matCellDef="let row" class="mat-column-checkbox">
+										<mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null" [checked]="selection.isSelected(row)">
+										</mat-checkbox>
+									</mat-cell>
+								</ng-container>
+
+								<ng-container matColumnDef="id">
+									<mat-header-cell *matHeaderCellDef mat-sort-header>ID</mat-header-cell>
+									<mat-cell *matCellDef="let deal">{{deal.id}}</mat-cell>
+								</ng-container>
+
+								<ng-container matColumnDef="name">
+									<mat-header-cell *matHeaderCellDef mat-sort-header class="email-cell">Deal Name</mat-header-cell>
+									<mat-cell *matCellDef="let deal" class="email-cell" (mouseenter)="deal.show = true" (mouseleave)="deal.show = false">
+										<div class="d-flex flex-row justify-content-between align-items-center" style="width: 95%;">
+											<div>
+												{{deal.name}}
+											</div>
+											<button class="btn btn-sm btn-info" *ngIf="deal.show" (click)="sidenav.toggle()">preview</button>
+										</div>
+									</mat-cell>
+								</ng-container>
+
+								<ng-container matColumnDef="stage">
+									<mat-header-cell *matHeaderCellDef mat-sort-header>Deal Stage</mat-header-cell>
+									<mat-cell *matCellDef="let deal">
+										{{deal.stage}}
+									</mat-cell>
+								</ng-container>
+
+								<ng-container matColumnDef="closeDate">
+									<mat-header-cell *matHeaderCellDef mat-sort-header>Close Date</mat-header-cell>
+									<mat-cell *matCellDef="let deal">{{deal.closeDate | date : 'dd/MM/yyyy'}}</mat-cell>
+								</ng-container>
+
+
+								<ng-container matColumnDef="amount">
+									<mat-header-cell *matHeaderCellDef mat-sort-header>Amount</mat-header-cell>
+									<mat-cell *matCellDef="let deal">{{deal.amount | currency : 'INR': 'symbol'}}</mat-cell>
+								</ng-container>
+
+								<ng-container matColumnDef="owner">
+									<mat-header-cell *matHeaderCellDef mat-sort-header>Owner</mat-header-cell>
+									<mat-cell *matCellDef="let deal">
+										{{deal.owner}}
+									</mat-cell>
+								</ng-container>
+
+								<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+
+								<mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+							</mat-table>
+
+						</div>
+
+						<!-- start: BOTTOM -->
+						<div class="mat-table__bottom">
+							<mat-paginator [pageSize]="10" [pageSizeOptions]="[ 10,20,30]"></mat-paginator>
+						</div>
+						<!-- end: BOTTOM -->
+					</div>
+				</div>
+
+
+			</mat-sidenav-content>
+		</mat-sidenav-container>
+
+	</ng-container>
+	<!-- end::Body -->
+
+</m-portlet>
