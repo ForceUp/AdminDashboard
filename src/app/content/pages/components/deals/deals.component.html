@@ -9,17 +9,6 @@
 	</ng-container>
 
 	<ng-container mPortletHeadTools>
-		<div class="btn-group btn-group-toggle">
-
-			<label class="btn-primary" ngbButtonLabel>
-				<input type="checkbox" ngbButton [(ngModel)]="model.table"> Table
-			</label>
-
-			<label class="btn-primary" ngbButtonLabel>
-				<input type="checkbox" ngbButton [(ngModel)]="model.board"> Board
-			</label>
-
-		</div>
 		<button (click)="addDeal()" class="btn btn-info" matTooltip="Create deal" type="button">
 			<span>Create Deal</span>
 		</button>
@@ -68,65 +57,8 @@
 
 				<!-- end::FILTERS & GROUP ACTIONS -->
 				<div class="row jusify-content-center">
-					<div class="col-sm-3">
-						<ul class="m-nav">
-							<li class="m-nav__item">
-								<a href="" class="m-nav__link">
-									<i class="m-nav__link-icon flaticon-share"></i>
-									<span class="m-nav__link-text">All Deals</span>
-								</a>
-							</li>
-							<li class="m-nav__item">
-								<a href="" class="m-nav__link">
-									<i class="m-nav__link-icon flaticon-info"></i>
-									<span class="m-nav__link-text">All Saved Filters</span>
-								</a>
-							</li>
-							<li class="m-nav__item m-nav__item--active">
-								<a href="" class="m-nav__link">
-									<i class="m-nav__link-icon flaticon-chat-1"></i>
-									<span class="m-nav__link-title">
-										<span class="m-nav__link-wrap">
-											<span class="m-nav__link-text">Pipeline </span>
-										</span>
-									</span>
-								</a>
-								<ul class="m-nav__sub">
-									<li class="m-nav__item">
-										<a href="" class="m-nav__link">
-											<span class="m-nav__link-bullet m-nav__link-bullet--line"><span></span></span>
-											<span class="m-nav__link-text">Cinemas - UK</span>
-										</a>
-									</li>
-									<li class="m-nav__item">
-										<a href="" class="m-nav__link">
-											<span class="m-nav__link-bullet m-nav__link-bullet--line"><span></span></span>
-											<span class="m-nav__link-text">Replied</span>
-										</a>
-									</li>
-								</ul>
-							</li>
-							<li class="m-nav__item m-nav__item--active">
-								<a href="" class="m-nav__link">
-									<span class="m-nav__link-title">
-										<span class="m-nav__link-wrap">
-											<span class="m-nav__link-text">All Deals</span>
-											<span class="m-nav__link-badge">
-												<span class="m-badge m-badge--warning">8 deals</span>
-											</span>
-										</span>
-									</span>
-								</a>
-							</li>
-							<li class="m-nav__item">
-								<a href="" class="m-nav__link">
-									<i class="m-nav__link-icon flaticon-add"></i>
-									<span class="m-nav__link-text"> Add Filter</span>
-								</a>
-							</li>
-						</ul>
-					</div>
-					<div class="col-sm-9">
+
+					<div class="col-12">
 						<div class="mat-table__wrapper">
 							<mat-table class="lmat-elevation-z8" [dataSource]="dataSource" matSort matSortActive="id" matSortDirection="asc" matSortDisableClear>
 								<!-- Checkbox Column -->
