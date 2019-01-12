@@ -39,7 +39,7 @@
 									<li class="m-nav__item">
 										<a href="" class="m-nav__link">
 											<i class="m-nav__link-icon flaticon-info"></i>
-											<span class="m-nav__link-text">This  Month</span>
+											<span class="m-nav__link-text">This Month</span>
 										</a>
 									</li>
 									<li class="m-nav__item">
@@ -67,11 +67,12 @@
 		<div class="d-flex flex-column">
 			<div>
 				<ul class="sales-well sales-well--nowrap">
-					<li class="sales-well__item sales-well__item--small m-y-2" *ngFor="let sale of salesPerformanceData">
+					<!--  Contacts Assigned -->
+					<li class="sales-well__item sales-well__item--small m-y-2">
 						<div class="sales-well__inner">
-							<span class="sales-well__label"> {{ sale.name }} </span>
+							<span class="sales-well__label"> Contacts Assigned </span>
 
-							<span class="sales-well__big-number m--font-primary">{{ sale.value }}</span>
+							<span class="sales-well__big-number m--font-primary">{{ saleData.conAssigned }}</span>
 							<span class="sales-well__connector">
 								<span class="sales-chevron sales-chevron--right">
 									<span class="sales-chevron__inner"></span>
@@ -79,6 +80,77 @@
 							</span>
 						</div>
 					</li>
+
+					<!-- Contacts Worked -->
+					<li class="sales-well__item sales-well__item--small m-y-2">
+						<div class="sales-well__inner">
+							<span class="sales-well__label"> Contacts Worked </span>
+
+							<span class="sales-well__big-number m--font-primary">{{ saleData.conCreated }}</span>
+							<span class="sales-well__connector">
+								<span class="sales-chevron sales-chevron--right">
+									<span class="sales-chevron__inner"></span>
+								</span>
+							</span>
+						</div>
+					</li>
+
+					<!-- In Follow-up-->
+					<li class="sales-well__item sales-well__item--small m-y-2">
+						<div class="sales-well__inner">
+							<span class="sales-well__label"> In Follow-up </span>
+
+							<span class="sales-well__big-number m--font-primary">{{ saleData.inFolup }}</span>
+							<span class="sales-well__connector">
+								<span class="sales-chevron sales-chevron--right">
+									<span class="sales-chevron__inner"></span>
+								</span>
+							</span>
+						</div>
+					</li>
+
+					<!-- Face 2 face -->
+					<li class="sales-well__item sales-well__item--small m-y-2">
+						<div class="sales-well__inner">
+							<span class="sales-well__label"> Face 2 face </span>
+
+							<span class="sales-well__big-number m--font-primary">{{ saleData.fac2fac }}</span>
+							<span class="sales-well__connector">
+								<span class="sales-chevron sales-chevron--right">
+									<span class="sales-chevron__inner"></span>
+								</span>
+							</span>
+						</div>
+					</li>
+
+					<!-- File Processing -->
+					<li class="sales-well__item sales-well__item--small m-y-2">
+						<div class="sales-well__inner">
+							<span class="sales-well__label"> File Processing </span>
+
+							<span class="sales-well__big-number m--font-primary">{{ saleData.filProcessing }}</span>
+							<span class="sales-well__connector">
+								<span class="sales-chevron sales-chevron--right">
+									<span class="sales-chevron__inner"></span>
+								</span>
+							</span>
+						</div>
+					</li>
+
+					<!-- Sale Closed -->
+					<li class="sales-well__item sales-well__item--small m-y-2">
+						<div class="sales-well__inner">
+							<span class="sales-well__label"> Sale Closed </span>
+
+							<span class="sales-well__big-number m--font-primary">{{ saleData.salClosed }}</span>
+							<span class="sales-well__connector">
+								<span class="sales-chevron sales-chevron--right">
+									<span class="sales-chevron__inner"></span>
+								</span>
+							</span>
+						</div>
+					</li>
+
 				</ul>
 			</div>
 

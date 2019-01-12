@@ -1,3 +1,5 @@
+
+<div  *ngIf="dashboardData$ | async as dashboardData">
 <!--Begin::Section-->
 <m-stat></m-stat>
 <!--End::Section-->
@@ -7,13 +9,14 @@
 <!--End::Section-->
 
 <!--Begin::Section-->
-<m-sales-performance></m-sales-performance>
+<!--  Provide inputs for the child component  -->
+<m-sales-performance [saleData]="dashboardData.objHomePageSales"></m-sales-performance>
 <!--End::Section-->
 
 <!--Begin::Section-->
 <div class="row">
 	<div class="col-sm-5 col">
-		<m-deal-stage-funnel></m-deal-stage-funnel>
+		<m-deal-stage-funnel [dealsData]="dashboardData.objHomePageDeal"></m-deal-stage-funnel>
 	</div>
 	<div class="col-sm-7 col">
 		<m-lost-deals></m-lost-deals>
@@ -24,4 +27,6 @@
 	<div class="col">
 		<m-best-ever-vs-current></m-best-ever-vs-current>
 	</div>
+</div>
+
 </div>
