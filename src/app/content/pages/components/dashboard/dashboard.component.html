@@ -1,11 +1,11 @@
 
 <div  *ngIf="dashboardData$ | async as dashboardData">
 <!--Begin::Section-->
-<m-stat></m-stat>
+<m-stat [statsData]="dashboardData.objHomePageTarget"></m-stat>
 <!--End::Section-->
 
 <!--Begin::Section-->
-<m-pipeline-breakup></m-pipeline-breakup>
+<m-pipeline-breakup [breakupData]="dashboardData.objHomePagePipeline"></m-pipeline-breakup>
 <!--End::Section-->
 
 <!--Begin::Section-->
@@ -16,10 +16,10 @@
 <!--Begin::Section-->
 <div class="row">
 	<div class="col-sm-5 col">
-		<m-deal-stage-funnel [dealsData]="dashboardData.objHomePageDeal"></m-deal-stage-funnel>
+		<m-deal-stage-funnel [dealsDataInput]="dashboardData.objHomePageDeal"></m-deal-stage-funnel>
 	</div>
 	<div class="col-sm-7 col">
-		<m-lost-deals></m-lost-deals>
+		<m-lost-deals [lostdealsData]="dashboardData.objHomePageLost"></m-lost-deals>
 	</div>
 </div>
 

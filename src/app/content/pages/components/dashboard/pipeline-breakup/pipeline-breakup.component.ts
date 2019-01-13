@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { NgbProgressbarConfig } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClient } from '@angular/common/http';
+import { PagePipeLineModel } from '../dashboard.model';
 
 @Component({
 	selector: 'm-pipeline-breakup',
@@ -9,6 +10,7 @@ import { HttpClient } from '@angular/common/http';
 	providers: [NgbProgressbarConfig]
 })
 export class PipelineBreakupComponent implements OnInit {
+	@Input() breakupData: PagePipeLineModel;
 	pipeLineData: any[];
 	constructor(config: NgbProgressbarConfig, private http: HttpClient) {
 		config.max = 100;
@@ -21,92 +23,41 @@ export class PipelineBreakupComponent implements OnInit {
 	ngOnInit() {
 		this.pipeLineData = [
 			{
-				amount: 234455,
+				amount: this.breakupData.fuValue,
 				stage: 'Follow up ',
-				percent: 20,
+				percent: this.breakupData.fuPercent,
 				type: 'danger',
 				flexWidth: { flex: `0 1 20%` }
 			},
 			{
-				amount: 23855,
+				amount: this.breakupData.conValue,
 				stage: 'Contacted ',
-				percent: 20,
+				percent: this.breakupData.conPercent,
 				type: 'warning',
 				flexWidth: { flex: `0 1 20%` }
 			},
 			{
-				amount: 234525,
+				amount: this.breakupData.f2fValue,
 				stage: 'F2F ',
-				percent: 40,
+				percent: this.breakupData.f2fPercent,
 				type: 'high deal',
 				flexWidth: { flex: `0 1 40%` }
 			},
 			{
-				amount: 23785,
+				amount: this.breakupData.dcValue,
 				stage: 'Doc Collection ',
-				percent: 10,
+				percent: this.breakupData.dcPercent,
 				type: 'info',
 				flexWidth: { flex: `0 1 10%` }
 			},
 			{
-				amount: 15255,
+				amount: this.breakupData.fpValue,
 				stage: 'File Processing ',
-				percent: 10,
+				percent: this.breakupData.fpPercent,
 				type: 'success',
 				flexWidth: { flex: `0 1 10%` }
 			}
 		];
-		this.prepareData();
-	}
-
-	prepareData() {
-		const headers = new Headers();
-		headers.append('Content-Type', 'application/json');
-		this.http.post('https://app.forceupapp.com/users/web/homepage',
-			{
-				'data': { 'userName': 'katty', 'password': '', 'startDate': 1546496046084, 'endDate': 1546496046084 }
-			}).subscribe((data: any) => {
-				console.log(data);
-				if (data && data.objHomePagePipeline) {
-					const item = data.objHomePagePipeline;
-					this.pipeLineData = [
-						{
-							amount: item.fuValue,
-							stage: 'Follow up ',
-							percent: item.fuPercent,
-							type: 'danger',
-							flexWidth: { flex: `0 1 20%` }
-						},
-						{
-							amount: item.conValue,
-							stage: 'Contacted ',
-							percent: item.conPercent,
-							type: 'warning',
-							flexWidth: { flex: `0 1 20%` }
-						},
-						{
-							amount: item.f2fValue,
-							stage: 'F2F ',
-							percent: item.f2fPercent,
-							type: 'high deal',
-							flexWidth: { flex: `0 1 40%` }
-						},
-						{
-							amount: item.dcValue,
-							stage: 'Doc Collection ',
-							percent: item.dcPercent,
-							type: 'info',
-							flexWidth: { flex: `0 1 10%` }
-						},
-						{
-							amount: item.fpValue,
-							stage: 'File Processing ',
-							percent: item.fpPercent,
-							type: 'success',
-							flexWidth: { flex: `0 1 10%` }
-						}
-					];
-				}
-			});
+		// this.prepareData();
 	}
 }

@@ -10,8 +10,9 @@ import { PageDealModel } from '../dashboard.model';
 	providers: [NgbProgressbarConfig]
 })
 export class DealStageFunnelComponent implements OnInit {
-	@Input() dealsData: PageDealModel;
-	constructor(config: NgbProgressbarConfig) {
+	@Input() dealsDataInput: PageDealModel;
+	dealsData: any[];
+	constructor(config: NgbProgressbarConfig, private http: HttpClient) {
 		config.max = 100;
 		// config.striped = true;
 		config.animated = true;
@@ -20,45 +21,43 @@ export class DealStageFunnelComponent implements OnInit {
 	}
 
 	ngOnInit() {
-		debugger;
-		console.log(this.dealsData);
-		// 				this.dealsData = [
-		// 					{
-		// 						stage: 'Created',
-		// 						count: item.created,
-		// 						conversion: item.creatConversion
-		// 					},
-		// 					{
-		// 						stage: 'In Follow-up',
-		// 						count: item.followUp,
-		// 						conversion: item.fuConversion
-		// 					},
-		// 					{
-		// 						stage: 'Face 2 face ',
-		// 						count: item.fac2fac,
-		// 						conversion: item.f2fConversion
-		// 					},
-		// 					{
-		// 						stage: 'Doc Collection',
-		// 						count: item.docCollection,
-		// 						conversion: item.dcConversion
-		// 					},
-		// 					{
-		// 						stage: 'File processing',
-		// 						count: item.fileProcessing,
-		// 						conversion: item.fpConversion
-		// 					},
-		// 					{
-		// 						stage: 'Closed won',
-		// 						count: item.closedWon,
-		// 						conversion: item.cwConversion
-		// 					},
-		// 					{
-		// 						stage: 'Closed won',
-		// 						count: item.closedLost,
-		// 						conversion: item.clConversion
-		// 					}
-		// 				];
-		// 			}
+		this.dealsData = [
+			{
+				stage: 'Created',
+				count: this.dealsDataInput.created,
+				conversion: this.dealsDataInput.creatConversion
+			},
+			{
+				stage: 'In Follow-up',
+				count: this.dealsDataInput.followUp,
+				conversion: this.dealsDataInput.fuConversion
+			},
+			{
+				stage: 'Face 2 face ',
+				count: this.dealsDataInput.fac2fac,
+				conversion: this.dealsDataInput.f2fConversion
+			},
+			{
+				stage: 'Doc Collection',
+				count: this.dealsDataInput.docCollection,
+				conversion: this.dealsDataInput.dcConversion
+			},
+			{
+				stage: 'File processing',
+				count: this.dealsDataInput.fileProcessing,
+				conversion: this.dealsDataInput.fpConversion
+			},
+			{
+				stage: 'Closed won',
+				count: this.dealsDataInput.closedWon,
+				conversion: this.dealsDataInput.cwConversion
+			},
+			{
+				stage: 'Closed won',
+				count: this.dealsDataInput.closedLost,
+				conversion: this.dealsDataInput.clConversion
+			}
+		];
 	}
+
 }

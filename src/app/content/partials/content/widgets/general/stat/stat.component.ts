@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { StatusModel, PageTargetModel } from '../../../../../pages/components/dashboard/dashboard.model';
 
 @Component({
 	selector: 'm-stat',
@@ -8,6 +9,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class StatComponent implements OnInit {
 
+	@Input() statsData: PageTargetModel;
 	targetAchieved: any;
 	daysRemaining: any;
 	percentageRemaining: any;
@@ -20,28 +22,14 @@ export class StatComponent implements OnInit {
 	constructor(private http: HttpClient) { }
 
 	ngOnInit() {
-	}
-
-	prepareData() {
-		const headers = new Headers();
-		headers.append('Content-Type', 'application/json');
-		this.http.post('https://app.forceupapp.com/users/web/homepage',
-			{
-				'data': { 'userName': 'katty', 'password': '', 'startDate': 1546496046084, 'endDate': 1546496046084 }
-			}).subscribe((data: any) => {
-				console.log(data);
-				if (data && data.objHomePageTarget) {
-					const item = data.objHomePageTarget;
-					this.targetAchieved = item.targetAchieved;
-					this.daysRemaining = item.daysRemaining;
-					this.percentageRemaining = item.percentageRemaining;
-					this.prospectsCreated = item.prospectsCreated;
-					this.prospectsAssigned = item.prospectsAssigned;
-					this.prospectsReached = item.prospectsReached;
-					this.fileProcessing = item.fileProcessing;
-					this.followup = item.followup;
-					this.lostValues = item.lostValues;
-				}
-			});
+		this.targetAchieved = this.statsData.targetAchieved;
+		this.daysRemaining = this.statsData.daysRemaining;
+		this.percentageRemaining = this.statsData.percentageRemaining;
+		this.prospectsCreated = this.statsData.prospectsCreated;
+		this.prospectsAssigned = this.statsData.prospectsAssigned;
+		this.prospectsReached = this.statsData.prospectsReached;
+		this.fileProcessing = this.statsData.fileProcessing;
+		this.followup = this.statsData.followup;
+		this.lostValues = this.statsData.lostValues;
 	}
 }
