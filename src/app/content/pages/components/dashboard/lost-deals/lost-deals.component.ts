@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { PageLostModel } from '../dashboard.model';
 
 @Component({
 	selector: 'm-lost-deals',
@@ -7,6 +8,7 @@ import { HttpClient } from '@angular/common/http';
 	styleUrls: ['./lost-deals.component.scss']
 })
 export class LostDealsComponent implements OnInit {
+	@Input() lostdealsData: PageLostModel;
 	public barChartOptions: any = {
 		maintainAspectRatio: false,
 		scales: {
@@ -37,28 +39,20 @@ export class LostDealsComponent implements OnInit {
 		{ data: [165, 100, 180, 140, 120, 100, 130], label: '' }
 	];
 
-	constructor(private http: HttpClient) {}
+	constructor(private http: HttpClient) { }
 
 	ngOnInit() {
-		this.prepareData();
+		console.log(this.lostdealsData);
+		// const item = this.lostdealsData;
+		if (this.lostdealsData) {
+			this.barChartData = [{
+				data: [this.lostdealsData.badCibil, this.lostdealsData.salMismatch, this.lostdealsData.generalInquiry,
+				this.lostdealsData.intMismatch, this.lostdealsData.alreadyBought, this.lostdealsData.lessLoanAmt, this.lostdealsData.highFees]
+			}];
+		}
 	}
 
-	chartHovered(event: any) {}
+	chartHovered(event: any) { }
 
 	chartClicked(event: any) { }
-	prepareData() {
-		const headers = new Headers();
-		headers.append('Content-Type', 'application/json');
-		this.http.post('https://app.forceupapp.com/users/web/homepage',
-			{
-				'data': { 'userName': 'katty', 'password': '', 'startDate': 1546496046084, 'endDate': 1546496046084 }
-			}).subscribe((data: any) => {
-				console.log(data);
-				if (data && data.objHomePageLost) {
-					const item = data.objHomePageLost;
-					this.barChartData = [item.badCibil, item.salMismatch, item.generalInquiry,
-					item.intMismatch, item.alreadyBought, item.lessLoanAmt, item.highFees];
-				}
-			});
-	}
 }
