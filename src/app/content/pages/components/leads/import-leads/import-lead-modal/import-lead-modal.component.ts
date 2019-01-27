@@ -5,6 +5,7 @@ import { ENTER, COMMA } from '@angular/cdk/keycodes';
 import { Observable } from 'rxjs';
 import { startWith } from 'rxjs/internal/operators/startWith';
 import { map } from 'rxjs/internal/operators/map';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
 	selector: 'm-import-lead-modal',
@@ -15,7 +16,7 @@ export class ImportLeadModalComponent implements OnInit {
 	stateCtrl: FormControl;
 	filteredStates: Observable<any[]>;
 	states: any[];
-	constructor(public activeModal: NgbActiveModal) {
+	constructor(public activeModal: NgbActiveModal, private http: HttpClient ) {
 		this.states = [
 			{
 				name: 'Arkansas',
@@ -69,6 +70,20 @@ export class ImportLeadModalComponent implements OnInit {
 
 	save(type?: string): void {
 		debugger;
+		this.http.post('https://app.forceupapp.com/users/web/importleads', {
+			data:  [
+				{
+					'leadName': 'sadf',
+					'leadPhoneNumber': 123,
+					'emailId': 'asdfa',
+					'leadStatus': 'd',
+					'creationDate': 1546503449133,
+					'leadAddress': 'sadfadf',
+					'dealAmount': 100
+				}]
+		}).subscribe(data => {
+			console.log();
+		});
 		this.activeModal.close(type);
 	}
 }

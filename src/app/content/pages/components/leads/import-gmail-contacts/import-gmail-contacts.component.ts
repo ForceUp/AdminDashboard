@@ -106,39 +106,41 @@ export class ImportGmailContactsComponent implements OnInit, AfterViewInit {
 		return '';
 	}
 
-	loadCustomersList(): void {}
+	loadCustomersList(): void { }
 
 	ngOnInit() {
 		this.contacts = [];
 		this.googleUserService.getUserContacts().subscribe((results: any) => {
 			debugger;
-			results.connections.forEach((element, index) => {
-				this.contacts.push({
-					id: index + 1,
-					userName: element.names ? element.names[0].displayName : '',
-					photo: element.photos ? element.photos[0].url : '',
-					job: element.occupations
-						? element.occupations[0].value
-						: '',
-					email: element.emailAddresses
-						? element.emailAddresses[0].value
-						: '',
-					dateOfBbirth: element.birthdays
-						? element.birthdays[0].text
-						: '',
-					ipAddress: '251.237.126.210',
-					status: 2,
-					type: 1,
-					_userId: 1,
-					_createdDate: '09/07/2016',
-					_updatedDate: '05/31/2013'
+			if (results && results.length) {
+				results.forEach((element, index) => {
+					this.contacts.push({
+						id: index + 1,
+						userName: element.leadName ? element.leadName : '',
+						photo: element.photos ? element.photos[0].url : '',
+						job: element.occupations
+							? element.occupations[0].value
+							: '',
+						email: element.leadMailId
+							? element.leadMailId
+							: '',
+						dateOfBbirth: element.birthdays
+							? element.birthdays[0].text
+							: '',
+						ipAddress: '251.237.126.210',
+						status: element.leadStatus,
+						type: 1,
+						_userId: 1,
+						_createdDate: '09/07/2016',
+						_updatedDate: '05/31/2013'
+					});
 				});
-			});
-			this.dataSource = new MatTableDataSource(this.contacts);
-			this.dataSource.paginator = this.paginator;
-			this.dataSource.sort = this.sort;
+				this.dataSource = new MatTableDataSource(this.contacts);
+				this.dataSource.paginator = this.paginator;
+				this.dataSource.sort = this.sort;
+			}
 		});
 	}
 
-	ngAfterViewInit() {}
+	ngAfterViewInit() { }
 }
