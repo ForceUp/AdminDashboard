@@ -118,7 +118,7 @@
 
 				<ng-container matColumnDef="firstName">
 					<mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
-					<mat-cell *matCellDef="let customer">{{customer.firstName}} {{customer.lastName}}</mat-cell>
+					<mat-cell *matCellDef="let customer">{{customer.leadName}}</mat-cell>
 				</ng-container>
 
 				<ng-container matColumnDef="lastName">
@@ -129,7 +129,7 @@
 				<ng-container matColumnDef="email">
 					<mat-header-cell *matHeaderCellDef mat-sort-header class="email-cell">Email</mat-header-cell>
 					<mat-cell *matCellDef="let customer" class="email-cell">
-						<a href="ecommerce/customers#" class="m-link">{{customer.email}}</a>
+						<a href="ecommerce/customers#" class="m-link">{{customer.leadMailId}}</a>
 					</mat-cell>
 				</ng-container>
 
@@ -141,7 +141,7 @@
 				<ng-container matColumnDef="status">
 					<mat-header-cell *matHeaderCellDef mat-sort-header>Status</mat-header-cell>
 					<mat-cell *matCellDef="let customer">
-						<span class="m-badge m-badge--{{ getItemCssClassByStatus(customer.status) }} m-badge--wide">{{ getItemStatusString(customer.status) }}</span>
+						<span class="m-badge m-badge--{{ getItemCssClassByStatus(customer.status) }} m-badge--wide">{{customer.leadStatus}}</span>
 					</mat-cell>
 				</ng-container>
 

@@ -7,14 +7,14 @@ import * as moment from 'moment';
 @Injectable({
 	providedIn: 'root'
 })
-export class DashboardService {
+export class PipelineService {
 	constructor(private http: HttpClient) {}
 
-	getDashboardData(): Observable<any> {
+	getPipelineData(): Observable<any> {
 		// return this.http.get(
 		// 	'https://api.forceupapp.com/users/webAction/teamresult'
 		// );
-		return this.http.post('https://app.forceupapp.com/users/web/homepage', {
+		return this.http.post('https://app.forceupapp.com/users/web/saledetails', {
 			data: {
 				userName: 'katty',
 				password: '',

@@ -1,4 +1,4 @@
-
 <m-pipeline-breakup></m-pipeline-breakup>
-
-<m-profile-prospects></m-profile-prospects>
+<div *ngIf="pipelineData$ | async as data">
+	<m-profile-prospects [sales]="data"></m-profile-prospects>
+</div>

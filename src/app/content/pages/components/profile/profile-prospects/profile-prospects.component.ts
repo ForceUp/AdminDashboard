@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
 import { CustomerModel, customers } from './data.model';
 import { SelectionModel } from '@angular/cdk/collections';
@@ -9,6 +9,7 @@ import { SelectionModel } from '@angular/cdk/collections';
 	styleUrls: ['./profile-prospects.component.scss']
 })
 export class ProfileProspectsComponent implements OnInit {
+	@Input() sales = [];
 	displayedColumns = [
 		'select',
 		'id',
@@ -104,6 +105,11 @@ export class ProfileProspectsComponent implements OnInit {
 	}
 
 	ngOnInit() {
+		this.sales.forEach(element => {
+			element.daysOld = new Date();
+		});
+		// this.dataSource = new MatTableDataSource(customers);
+		this.dataSource = new MatTableDataSource(this.sales);
 		this.dataSource.paginator = this.paginator;
 		this.dataSource.sort = this.sort;
 	}

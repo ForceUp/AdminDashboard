@@ -21,43 +21,45 @@ export class PipelineBreakupComponent implements OnInit {
 	}
 
 	ngOnInit() {
-		this.pipeLineData = [
-			{
-				amount: this.breakupData.fuValue,
-				stage: 'Follow up ',
-				percent: this.breakupData.fuPercent,
-				type: 'danger',
-				flexWidth: { flex: `0 1 20%` }
-			},
-			{
-				amount: this.breakupData.conValue,
-				stage: 'Contacted ',
-				percent: this.breakupData.conPercent,
-				type: 'warning',
-				flexWidth: { flex: `0 1 20%` }
-			},
-			{
-				amount: this.breakupData.f2fValue,
-				stage: 'F2F ',
-				percent: this.breakupData.f2fPercent,
-				type: 'high deal',
-				flexWidth: { flex: `0 1 40%` }
-			},
-			{
-				amount: this.breakupData.dcValue,
-				stage: 'Doc Collection ',
-				percent: this.breakupData.dcPercent,
-				type: 'info',
-				flexWidth: { flex: `0 1 10%` }
-			},
-			{
-				amount: this.breakupData.fpValue,
-				stage: 'File Processing ',
-				percent: this.breakupData.fpPercent,
-				type: 'success',
-				flexWidth: { flex: `0 1 10%` }
-			}
-		];
+		if (this.breakupData) {
+			this.pipeLineData = [
+				{
+					amount: this.breakupData.fuValue,
+					stage: 'Follow up ',
+					percent: this.breakupData.fuPercent,
+					type: 'danger',
+					flexWidth: { flex: `0 1 20%` }
+				},
+				{
+					amount: this.breakupData.conValue,
+					stage: 'Contacted ',
+					percent: this.breakupData.conPercent,
+					type: 'warning',
+					flexWidth: { flex: `0 1 20%` }
+				},
+				{
+					amount: this.breakupData.f2fValue,
+					stage: 'F2F ',
+					percent: this.breakupData.f2fPercent,
+					type: 'high deal',
+					flexWidth: { flex: `0 1 40%` }
+				},
+				{
+					amount: this.breakupData.dcValue,
+					stage: 'Doc Collection ',
+					percent: this.breakupData.dcPercent,
+					type: 'info',
+					flexWidth: { flex: `0 1 10%` }
+				},
+				{
+					amount: this.breakupData.fpValue,
+					stage: 'File Processing ',
+					percent: this.breakupData.fpPercent,
+					type: 'success',
+					flexWidth: { flex: `0 1 10%` }
+				}
+			];
+		}
 		// this.prepareData();
 	}
 }

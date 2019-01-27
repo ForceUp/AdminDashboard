@@ -11,6 +11,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ChartsModule } from 'ng2-charts';
 import { MatChipsModule } from '@angular/material';
 import { RouterModule } from '@angular/router';
+import { PipelineService } from './pipeline.service';
 
 @NgModule({
 	imports: [
@@ -31,6 +32,7 @@ import { RouterModule } from '@angular/router';
 			}
 		])
 	],
-	declarations: [PipelineComponent]
+	declarations: [PipelineComponent],
+	providers: [PipelineService]
 })
 export class PipelineModule {}
